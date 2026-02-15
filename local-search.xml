@@ -8,7 +8,7 @@
     <link href="/2026/02/15/main/"/>
     <url>/2026/02/15/main/</url>
     
-    <content type="html"><![CDATA[<p>$$\sum_{i&#x3D;1}^n a_i$$</p>]]></content>
+    <content type="html"><![CDATA[<p>$$\sum_{i&#x3D;1}^n a_i$$</p><ul><li>111</li><li>1fd</li></ul><ol><li>a</li><li>b</li></ol><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
     
     
     
