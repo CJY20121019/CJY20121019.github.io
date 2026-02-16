@@ -19,29 +19,24 @@
   <meta name="author" content="__CJY__">
   <meta name="keywords" content="">
   
-    <meta name="description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;i1kejuse 点个赞吧！  前言话说最近 DeepSeek 太火了，而且受到了攻击，所以官网卡得要命！ 所以我们可以在本地部署和运行 DeepSeek，实现 AI 对话的功能。 安装在 ollama 官网 上下载自己系统的版本。 下载完后，重回 ollama 官网，搜索 deepseek-r1，点第一个，然后选择适合自己电">
+    <meta name="description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;lfqjd3co 点个赞吧！  发现题解区里的解法咋都那么麻烦呢？这里介绍一种非常简单的方法，希望大家喜欢！ 题意简述这道题要求我们找出可能成为两种奶牛（根西岛 G 和荷斯坦 H）的“领导者”的所有可能的奶牛对。成为“领导者”的条件是：  其记录的名单上包含它的品种的所有奶牛。 其记录的名单上记录了另一品种奶牛的“领导者”。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DeepSeek 本地部署指南">
-<meta property="og:url" content="https://cjy20121019.github.io/2026/02/16/DeepSeek%20%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:title" content="题解：P9010 [USACO23JAN] Leaders B">
+<meta property="og:url" content="https://cjy20121019.github.io/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP9010%20%5BUSACO23JAN%5D%20Leaders%20B/index.html">
 <meta property="og:site_name" content="__CJY__&#39;s Blog">
-<meta property="og:description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;i1kejuse 点个赞吧！  前言话说最近 DeepSeek 太火了，而且受到了攻击，所以官网卡得要命！ 所以我们可以在本地部署和运行 DeepSeek，实现 AI 对话的功能。 安装在 ollama 官网 上下载自己系统的版本。 下载完后，重回 ollama 官网，搜索 deepseek-r1，点第一个，然后选择适合自己电">
+<meta property="og:description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;lfqjd3co 点个赞吧！  发现题解区里的解法咋都那么麻烦呢？这里介绍一种非常简单的方法，希望大家喜欢！ 题意简述这道题要求我们找出可能成为两种奶牛（根西岛 G 和荷斯坦 H）的“领导者”的所有可能的奶牛对。成为“领导者”的条件是：  其记录的名单上包含它的品种的所有奶牛。 其记录的名单上记录了另一品种奶牛的“领导者”。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/c0t9xv6s.png">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/w1xjpp48.png">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/426uwjdk.png">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/r8lzxdz5.png">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/tdbcgg7a.png">
-<meta property="article:published_time" content="2026-02-16T09:59:45.000Z">
-<meta property="article:modified_time" content="2026-02-16T10:02:09.601Z">
+<meta property="article:published_time" content="2026-02-16T10:02:42.000Z">
+<meta property="article:modified_time" content="2026-02-16T10:03:45.851Z">
 <meta property="article:author" content="__CJY__">
+<meta property="article:tag" content="贪心">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/c0t9xv6s.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>DeepSeek 本地部署指南 - __CJY__&#39;s Blog</title>
+  <title>题解：P9010 [USACO23JAN] Leaders B - __CJY__&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,7 +217,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="DeepSeek 本地部署指南"></span>
+            <span id="subtitle" data-typed-text="题解：P9010 [USACO23JAN] Leaders B"></span>
           
         </div>
 
@@ -233,8 +228,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-16 17:59" pubdate>
-          2026年2月16日 下午
+        <time datetime="2026-02-16 18:02" pubdate>
+          2026年2月16日 晚上
         </time>
       </span>
     
@@ -245,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          276 字
+          489 字
         
       </span>
     
@@ -256,7 +251,7 @@
         
         
         
-          3 分钟
+          5 分钟
         
       </span>
     
@@ -302,12 +297,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">DeepSeek 本地部署指南</h1>
+            <h1 id="seo-header">题解：P9010 [USACO23JAN] Leaders B</h1>
             
               <p id="updated-time" class="note note-warning" style="display: none">
                 
                   
-                    本文最后更新于 2026-02-16T18:02:09+08:00
+                    本文最后更新于 2026-02-16T18:03:45+08:00
                   
                   
 
@@ -317,19 +312,23 @@
             
               <div class="markdown-body">
                 
-                <p><strong>原文：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/i1kejuse">https://www.luogu.com.cn/article/i1kejuse</a> 点个赞吧！</strong></p>
+                <p><strong>原文：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/lfqjd3co">https://www.luogu.com.cn/article/lfqjd3co</a> 点个赞吧！</strong></p>
 <hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>话说最近 DeepSeek 太火了，而且受到了攻击，所以<a target="_blank" rel="noopener" href="https://www.deepseek.com/">官网</a>卡得要命！</p>
-<p>所以我们可以在本地部署和运行 DeepSeek，实现 AI 对话的功能。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在 <a target="_blank" rel="noopener" href="https://ollama.com/">ollama 官网</a> 上下载自己系统的版本。</p>
-<p>下载完后，重回 <a target="_blank" rel="noopener" href="https://ollama.com/">ollama 官网</a>，搜索 <code>deepseek-r1</code>，点第一个，然后选择适合自己电脑配置的选项，这里推荐 <code>7b</code> 的。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/c0t9xv6s.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload><br>然后在终端或者 <code>powershell</code> 里输入指令：</p>
-<blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">&gt;ollama run deepseek<span class="hljs-literal">-r1</span>:<span class="hljs-number">7</span>b<br></code></pre></td></tr></table></figure><p>其中 <code>7b</code> 可替换为自己之前选择的选项。</p>
-</blockquote>
-<p>请<strong>耐心</strong>等进度条跑完，这可能会消耗<del>几年</del><strong>几小时</strong>的时间。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/w1xjpp48.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload></p>
-<p>按下回车，就可以对话了！它使用的格式是 Markdown。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/426uwjdk.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload><br>下面还有好多，就不贴了。</p>
-<p>为了方便对话，我们可以下载一个 Chatbox，<a target="_blank" rel="noopener" href="https://chatboxai.app/zh">官网点这里</a>。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/r8lzxdz5.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload><br>下载完后打开，点击左下角的<code>设置</code>按钮，按照上述步骤修改，其余不变。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/tdbcgg7a.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload><br>  现在就可以交流了！<strong>如果不行的话请重启 Chatbox 再试试！</strong></p>
-<p><strong>求赞！求关注，必回关！</strong></p>
+<p>发现题解区里的解法咋都那么麻烦呢？这里介绍一种非常简单的方法，希望大家喜欢！</p>
+<h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>这道题要求我们找出可能成为两种奶牛（根西岛 <code>G</code> 和荷斯坦 <code>H</code>）的“领导者”的所有可能的奶牛对。成为“领导者”的条件是：</p>
+<ol>
+<li>其记录的名单上包含它的品种的所有奶牛。</li>
+<li>其记录的名单上记录了另一品种奶牛的“领导者”。</li>
+</ol>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先我们先找出第一种牛（假设为 <code>G</code> 品种）的最后一个牛的位置 $r$，再找出第二种牛（假设为 <code>H</code> 品种）的第一个牛的位置 $l$。</p>
+<p>找出领导者对的判断条件为 $i&#x3D;1 \land E_i \ge r \lor E_i \ge l$，解释如下：</p>
+<ul>
+<li>$i&#x3D;1 \land E_i \ge r$：如果当前奶牛是第一头奶牛，并且它的名单结束位置 $E_i \ge r$（即包含所有 <code>G</code> 品种奶牛），则它可以是一个领导者。这是因为如果第一头奶牛是 <code>G</code>，它需要知道所有 <code>G</code> 品种奶牛的信息。</li>
+<li>$E_i \ge l$：对于其他奶牛（不是第一头奶牛），如果它们的名单结束位置 $E_i \ge l$（即包含第一个 <code>H</code> 品种奶牛的位置），则它们也可以是一个领导者。<br>这是因为这些奶牛需要知道至少一个 <code>H</code> 品种奶牛的信息。</li>
+</ul>
+<p>两种条件满足一条即可。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxn=<span class="hljs-number">2e5</span><span class="hljs-number">+5</span>;<br><span class="hljs-type">char</span> s[maxn];<br><span class="hljs-type">int</span> n,l,r,e[maxn],ans;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	cin&gt;&gt;n&gt;&gt;(s<span class="hljs-number">+1</span>);<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) cin&gt;&gt;e[i];<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>		<span class="hljs-keyword">if</span>(s[i]==s[<span class="hljs-number">1</span>]) r=i;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">2</span>;i&lt;=n;i++)&#123;<br>		<span class="hljs-keyword">if</span>(s[i]!=s[<span class="hljs-number">1</span>])&#123;l=i;<span class="hljs-keyword">break</span>;&#125;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;l;i++)&#123;<br>		<span class="hljs-keyword">if</span>((i==<span class="hljs-number">1</span>&amp;&amp;e[i]&gt;=r)||e[i]&gt;=l) ans++;<br>	&#125;<br>	cout&lt;&lt;ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>纯原创，想了好久，求赞！</strong></p>
 
                 
               </div>
@@ -348,7 +347,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%A7%91%E6%8A%80%C2%B7%E5%B7%A5%E7%A8%8B/" class="category-chain-item">科技·工程</a>
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
   
   
 
@@ -360,6 +359,13 @@
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%B4%AA%E5%BF%83/" class="print-no-link">#贪心</a>
+      
+    </div>
+  
 </div>
 
 
@@ -368,8 +374,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>DeepSeek 本地部署指南</div>
-      <div>https://cjy20121019.github.io/2026/02/16/DeepSeek 本地部署指南/</div>
+      <div>题解：P9010 [USACO23JAN] Leaders B</div>
+      <div>https://cjy20121019.github.io/2026/02/16/题解：P9010 [USACO23JAN] Leaders B/</div>
     </div>
     <div class="license-meta">
       
@@ -406,9 +412,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP9010%20%5BUSACO23JAN%5D%20Leaders%20B/" title="题解：P9010 [USACO23JAN] Leaders B">
+                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1022%20%5BNOIP2000%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20%E8%AE%A1%E7%AE%97%E5%99%A8%E7%9A%84%E6%94%B9%E8%89%AF/" title="题解：P1022 [NOIP2000 普及组] 计算器的改良">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">题解：P9010 [USACO23JAN] Leaders B</span>
+                        <span class="hidden-mobile">题解：P1022 [NOIP2000 普及组] 计算器的改良</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -416,8 +422,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1071%20%5BNOIP%202009%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E6%BD%9C%E4%BC%8F%E8%80%85/" title="题解：P1071 [NOIP 2009 提高组] 潜伏者">
-                        <span class="hidden-mobile">题解：P1071 [NOIP 2009 提高组] 潜伏者</span>
+                      <a href="/2026/02/16/DeepSeek%20%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/" title="DeepSeek 本地部署指南">
+                        <span class="hidden-mobile">DeepSeek 本地部署指南</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

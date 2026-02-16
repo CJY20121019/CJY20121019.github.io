@@ -4,6 +4,60 @@
   
   
   <entry>
+    <title>题解：P1022 [NOIP2000 普及组] 计算器的改良</title>
+    <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1022%20%5BNOIP2000%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20%E8%AE%A1%E7%AE%97%E5%99%A8%E7%9A%84%E6%94%B9%E8%89%AF/"/>
+    <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1022%20%5BNOIP2000%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20%E8%AE%A1%E7%AE%97%E5%99%A8%E7%9A%84%E6%94%B9%E8%89%AF/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/0dwcdu96">https://www.luogu.com.cn/article/0dwcdu96</a> 点个赞吧！</strong></p><hr><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这里先设定一下变量，之后在题解中会用到：</p><ul><li>$c$：用于存储当前读取的字符。</li><li>$a$：用于存储未知数的名称（假设只有一个未知数）。</li><li>$f$：用于存储当前项的符号，初始值为 $1$（表示正号）。</li><li>$w$：用于指示当前是在等号的左边还是右边，初始值为 $1$（表示左边）。</li><li>$k$：用于累加未知数的系数，初始值为 $0$。</li><li>$s$：用于累加常数项，初始值为 $0$。</li><li>$t$：用于临时存储当前读取的数字，初始值为 $0$。</li><li>$r$：布尔值，用于标记是否正在读取一个数字。</li></ul><p>这里要用 <code>while(cin&gt;&gt;c)</code> 来进行读入。</p><p>接下来处理每读入进来的字符：</p><ul><li>如果 $c$ 是<code>-</code>或<code>+</code>，这表示一个项的结束。根据 $w$ 和 $f$ 更新常数项 $s$，<code>s+=w*f*t</code>；重置 $f$ 为新的符号（<code>+</code>表示正，<code>-</code>表示负）；<code>t=0</code>，准备读取下一个数字；设置 <code>r=0</code>，表示当前不在读取数字。</li><li>如果 $c$ 是<code>=</code>，表示等式两边的切换。更新 $s$ 以包括当前项，<code>s+=w*f*t</code>；切换 $w$ 到右边，<code>w=-1</code>；<code>f=1,t=0,r=0</code>。</li><li>如果 $c$ 是小写字母（即未知数），这表示遇到了未知数。如果 $r&#x3D;1$，说明之前读取了一个数字，应更新 $k$，<code>k+=w*f*t</code>；否则，直接更新 $k$，<code>k+=w*f</code>；记录未知数名称，<code>a=c</code>；<code>r=0</code>。</li><li>如果 $c$ 是数字字符，更新当前数字 $t$，<code>t=t*10+(c-&#39;0&#39;)</code>；<code>r=1</code>，表示正在读取数字。</li></ul><p>循环结束后，最后一项可能还未被处理（如果是常数项或未知数的最后一部分）。更新 $s$ 以包括最后一项，<code>s+=w*f*t</code>。</p><p>计算未知数的值，<code>double ans=abs(double(-s*1.0/k))</code>。</p><p>格式化输出，保留三位小数。</p><p>有任何问题请指出！点个赞吧！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数学</tag>
+      
+      <tag>模拟</tag>
+      
+      <tag>字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解：P9010 [USACO23JAN] Leaders B</title>
+    <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP9010%20%5BUSACO23JAN%5D%20Leaders%20B/"/>
+    <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP9010%20%5BUSACO23JAN%5D%20Leaders%20B/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/lfqjd3co">https://www.luogu.com.cn/article/lfqjd3co</a> 点个赞吧！</strong></p><hr><p>发现题解区里的解法咋都那么麻烦呢？这里介绍一种非常简单的方法，希望大家喜欢！</p><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>这道题要求我们找出可能成为两种奶牛（根西岛 <code>G</code> 和荷斯坦 <code>H</code>）的“领导者”的所有可能的奶牛对。成为“领导者”的条件是：</p><ol><li>其记录的名单上包含它的品种的所有奶牛。</li><li>其记录的名单上记录了另一品种奶牛的“领导者”。</li></ol><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先我们先找出第一种牛（假设为 <code>G</code> 品种）的最后一个牛的位置 $r$，再找出第二种牛（假设为 <code>H</code> 品种）的第一个牛的位置 $l$。</p><p>找出领导者对的判断条件为 $i&#x3D;1 \land E_i \ge r \lor E_i \ge l$，解释如下：</p><ul><li>$i&#x3D;1 \land E_i \ge r$：如果当前奶牛是第一头奶牛，并且它的名单结束位置 $E_i \ge r$（即包含所有 <code>G</code> 品种奶牛），则它可以是一个领导者。这是因为如果第一头奶牛是 <code>G</code>，它需要知道所有 <code>G</code> 品种奶牛的信息。</li><li>$E_i \ge l$：对于其他奶牛（不是第一头奶牛），如果它们的名单结束位置 $E_i \ge l$（即包含第一个 <code>H</code> 品种奶牛的位置），则它们也可以是一个领导者。<br>这是因为这些奶牛需要知道至少一个 <code>H</code> 品种奶牛的信息。</li></ul><p>两种条件满足一条即可。</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxn=<span class="hljs-number">2e5</span><span class="hljs-number">+5</span>;<br><span class="hljs-type">char</span> s[maxn];<br><span class="hljs-type">int</span> n,l,r,e[maxn],ans;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>cin&gt;&gt;n&gt;&gt;(s<span class="hljs-number">+1</span>);<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) cin&gt;&gt;e[i];<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">if</span>(s[i]==s[<span class="hljs-number">1</span>]) r=i;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">2</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">if</span>(s[i]!=s[<span class="hljs-number">1</span>])&#123;l=i;<span class="hljs-keyword">break</span>;&#125;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;l;i++)&#123;<br><span class="hljs-keyword">if</span>((i==<span class="hljs-number">1</span>&amp;&amp;e[i]&gt;=r)||e[i]&gt;=l) ans++;<br>&#125;<br>cout&lt;&lt;ans;<br>&#125;<br></code></pre></td></tr></table></figure><p><strong>纯原创，想了好久，求赞！</strong></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>贪心</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>DeepSeek 本地部署指南</title>
     <link href="/2026/02/16/DeepSeek%20%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/"/>
     <url>/2026/02/16/DeepSeek%20%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</url>

@@ -19,29 +19,26 @@
   <meta name="author" content="__CJY__">
   <meta name="keywords" content="">
   
-    <meta name="description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;i1kejuse 点个赞吧！  前言话说最近 DeepSeek 太火了，而且受到了攻击，所以官网卡得要命！ 所以我们可以在本地部署和运行 DeepSeek，实现 AI 对话的功能。 安装在 ollama 官网 上下载自己系统的版本。 下载完后，重回 ollama 官网，搜索 deepseek-r1，点第一个，然后选择适合自己电">
+    <meta name="description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;0dwcdu96 点个赞吧！  思路这里先设定一下变量，之后在题解中会用到：  $c$：用于存储当前读取的字符。 $a$：用于存储未知数的名称（假设只有一个未知数）。 $f$：用于存储当前项的符号，初始值为 $1$（表示正号）。 $w$：用于指示当前是在等号的左边还是右边，初始值为 $1$（表示左边）。 $k$：用于累加未知数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DeepSeek 本地部署指南">
-<meta property="og:url" content="https://cjy20121019.github.io/2026/02/16/DeepSeek%20%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:title" content="题解：P1022 [NOIP2000 普及组] 计算器的改良">
+<meta property="og:url" content="https://cjy20121019.github.io/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1022%20%5BNOIP2000%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20%E8%AE%A1%E7%AE%97%E5%99%A8%E7%9A%84%E6%94%B9%E8%89%AF/index.html">
 <meta property="og:site_name" content="__CJY__&#39;s Blog">
-<meta property="og:description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;i1kejuse 点个赞吧！  前言话说最近 DeepSeek 太火了，而且受到了攻击，所以官网卡得要命！ 所以我们可以在本地部署和运行 DeepSeek，实现 AI 对话的功能。 安装在 ollama 官网 上下载自己系统的版本。 下载完后，重回 ollama 官网，搜索 deepseek-r1，点第一个，然后选择适合自己电">
+<meta property="og:description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;0dwcdu96 点个赞吧！  思路这里先设定一下变量，之后在题解中会用到：  $c$：用于存储当前读取的字符。 $a$：用于存储未知数的名称（假设只有一个未知数）。 $f$：用于存储当前项的符号，初始值为 $1$（表示正号）。 $w$：用于指示当前是在等号的左边还是右边，初始值为 $1$（表示左边）。 $k$：用于累加未知数">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/c0t9xv6s.png">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/w1xjpp48.png">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/426uwjdk.png">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/r8lzxdz5.png">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/tdbcgg7a.png">
-<meta property="article:published_time" content="2026-02-16T09:59:45.000Z">
-<meta property="article:modified_time" content="2026-02-16T10:02:09.601Z">
+<meta property="article:published_time" content="2026-02-16T10:07:05.000Z">
+<meta property="article:modified_time" content="2026-02-16T10:08:34.132Z">
 <meta property="article:author" content="__CJY__">
+<meta property="article:tag" content="字符串">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="模拟">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/c0t9xv6s.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>DeepSeek 本地部署指南 - __CJY__&#39;s Blog</title>
+  <title>题解：P1022 [NOIP2000 普及组] 计算器的改良 - __CJY__&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,7 +219,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="DeepSeek 本地部署指南"></span>
+            <span id="subtitle" data-typed-text="题解：P1022 [NOIP2000 普及组] 计算器的改良"></span>
           
         </div>
 
@@ -233,8 +230,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-16 17:59" pubdate>
-          2026年2月16日 下午
+        <time datetime="2026-02-16 18:07" pubdate>
+          2026年2月16日 晚上
         </time>
       </span>
     
@@ -245,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          276 字
+          494 字
         
       </span>
     
@@ -256,7 +253,7 @@
         
         
         
-          3 分钟
+          5 分钟
         
       </span>
     
@@ -302,12 +299,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">DeepSeek 本地部署指南</h1>
+            <h1 id="seo-header">题解：P1022 [NOIP2000 普及组] 计算器的改良</h1>
             
               <p id="updated-time" class="note note-warning" style="display: none">
                 
                   
-                    本文最后更新于 2026-02-16T18:02:09+08:00
+                    本文最后更新于 2026-02-16T18:08:34+08:00
                   
                   
 
@@ -317,19 +314,31 @@
             
               <div class="markdown-body">
                 
-                <p><strong>原文：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/i1kejuse">https://www.luogu.com.cn/article/i1kejuse</a> 点个赞吧！</strong></p>
+                <p><strong>原文：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/0dwcdu96">https://www.luogu.com.cn/article/0dwcdu96</a> 点个赞吧！</strong></p>
 <hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>话说最近 DeepSeek 太火了，而且受到了攻击，所以<a target="_blank" rel="noopener" href="https://www.deepseek.com/">官网</a>卡得要命！</p>
-<p>所以我们可以在本地部署和运行 DeepSeek，实现 AI 对话的功能。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在 <a target="_blank" rel="noopener" href="https://ollama.com/">ollama 官网</a> 上下载自己系统的版本。</p>
-<p>下载完后，重回 <a target="_blank" rel="noopener" href="https://ollama.com/">ollama 官网</a>，搜索 <code>deepseek-r1</code>，点第一个，然后选择适合自己电脑配置的选项，这里推荐 <code>7b</code> 的。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/c0t9xv6s.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload><br>然后在终端或者 <code>powershell</code> 里输入指令：</p>
-<blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">&gt;ollama run deepseek<span class="hljs-literal">-r1</span>:<span class="hljs-number">7</span>b<br></code></pre></td></tr></table></figure><p>其中 <code>7b</code> 可替换为自己之前选择的选项。</p>
-</blockquote>
-<p>请<strong>耐心</strong>等进度条跑完，这可能会消耗<del>几年</del><strong>几小时</strong>的时间。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/w1xjpp48.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload></p>
-<p>按下回车，就可以对话了！它使用的格式是 Markdown。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/426uwjdk.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload><br>下面还有好多，就不贴了。</p>
-<p>为了方便对话，我们可以下载一个 Chatbox，<a target="_blank" rel="noopener" href="https://chatboxai.app/zh">官网点这里</a>。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/r8lzxdz5.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload><br>下载完后打开，点击左下角的<code>设置</code>按钮，按照上述步骤修改，其余不变。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/tdbcgg7a.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload><br>  现在就可以交流了！<strong>如果不行的话请重启 Chatbox 再试试！</strong></p>
-<p><strong>求赞！求关注，必回关！</strong></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这里先设定一下变量，之后在题解中会用到：</p>
+<ul>
+<li>$c$：用于存储当前读取的字符。</li>
+<li>$a$：用于存储未知数的名称（假设只有一个未知数）。</li>
+<li>$f$：用于存储当前项的符号，初始值为 $1$（表示正号）。</li>
+<li>$w$：用于指示当前是在等号的左边还是右边，初始值为 $1$（表示左边）。</li>
+<li>$k$：用于累加未知数的系数，初始值为 $0$。</li>
+<li>$s$：用于累加常数项，初始值为 $0$。</li>
+<li>$t$：用于临时存储当前读取的数字，初始值为 $0$。</li>
+<li>$r$：布尔值，用于标记是否正在读取一个数字。</li>
+</ul>
+<p>这里要用 <code>while(cin&gt;&gt;c)</code> 来进行读入。</p>
+<p>接下来处理每读入进来的字符：</p>
+<ul>
+<li>如果 $c$ 是<code>-</code>或<code>+</code>，这表示一个项的结束。根据 $w$ 和 $f$ 更新常数项 $s$，<code>s+=w*f*t</code>；重置 $f$ 为新的符号（<code>+</code>表示正，<code>-</code>表示负）；<code>t=0</code>，准备读取下一个数字；设置 <code>r=0</code>，表示当前不在读取数字。</li>
+<li>如果 $c$ 是<code>=</code>，表示等式两边的切换。更新 $s$ 以包括当前项，<code>s+=w*f*t</code>；切换 $w$ 到右边，<code>w=-1</code>；<code>f=1,t=0,r=0</code>。</li>
+<li>如果 $c$ 是小写字母（即未知数），这表示遇到了未知数。如果 $r&#x3D;1$，说明之前读取了一个数字，应更新 $k$，<code>k+=w*f*t</code>；否则，直接更新 $k$，<code>k+=w*f</code>；记录未知数名称，<code>a=c</code>；<code>r=0</code>。</li>
+<li>如果 $c$ 是数字字符，更新当前数字 $t$，<code>t=t*10+(c-&#39;0&#39;)</code>；<code>r=1</code>，表示正在读取数字。</li>
+</ul>
+<p>循环结束后，最后一项可能还未被处理（如果是常数项或未知数的最后一部分）。更新 $s$ 以包括最后一项，<code>s+=w*f*t</code>。</p>
+<p>计算未知数的值，<code>double ans=abs(double(-s*1.0/k))</code>。</p>
+<p>格式化输出，保留三位小数。</p>
+<p>有任何问题请指出！点个赞吧！</p>
 
                 
               </div>
@@ -348,7 +357,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%A7%91%E6%8A%80%C2%B7%E5%B7%A5%E7%A8%8B/" class="category-chain-item">科技·工程</a>
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
   
   
 
@@ -360,6 +369,17 @@
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%A6/" class="print-no-link">#数学</a>
+      
+        <a href="/tags/%E6%A8%A1%E6%8B%9F/" class="print-no-link">#模拟</a>
+      
+        <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="print-no-link">#字符串</a>
+      
+    </div>
+  
 </div>
 
 
@@ -368,8 +388,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>DeepSeek 本地部署指南</div>
-      <div>https://cjy20121019.github.io/2026/02/16/DeepSeek 本地部署指南/</div>
+      <div>题解：P1022 [NOIP2000 普及组] 计算器的改良</div>
+      <div>https://cjy20121019.github.io/2026/02/16/题解：P1022 [NOIP2000 普及组] 计算器的改良/</div>
     </div>
     <div class="license-meta">
       
@@ -406,18 +426,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP9010%20%5BUSACO23JAN%5D%20Leaders%20B/" title="题解：P9010 [USACO23JAN] Leaders B">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">题解：P9010 [USACO23JAN] Leaders B</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1071%20%5BNOIP%202009%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E6%BD%9C%E4%BC%8F%E8%80%85/" title="题解：P1071 [NOIP 2009 提高组] 潜伏者">
-                        <span class="hidden-mobile">题解：P1071 [NOIP 2009 提高组] 潜伏者</span>
+                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP9010%20%5BUSACO23JAN%5D%20Leaders%20B/" title="题解：P9010 [USACO23JAN] Leaders B">
+                        <span class="hidden-mobile">题解：P9010 [USACO23JAN] Leaders B</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
