@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>题解：P1044 [NOIP 2003 普及组] 栈</title>
+    <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1044%20%5BNOIP%202003%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20%E6%A0%88/"/>
+    <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1044%20%5BNOIP%202003%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20%E6%A0%88/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/v9r07ta2">https://www.luogu.com.cn/article/v9r07ta2</a> 点个赞吧！</strong></p><hr><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>假设我们用一个函数 $\operatorname{C}(x,y)$ 表示：</p><ul><li>$x$：当前还未入栈的数字个数。</li><li>$y$：当前栈中的数字个数。</li></ul><p>我们的目标是计算 $\operatorname{C}(n,0)$，即从 $n$ 个数字开始，生成输出序列的方式。</p><p>在任何状态下，我们有两种选择：</p><ul><li>push 操作：如果还有数字可以入栈（即 $x&gt;0$），我们可以将一个数字从输入序列中移入栈中。这会减少未入栈的数字个数 $x$，同时增加栈中的数字个数 $y$。因此，该操作对应于 $\operatorname{C}(x-1,y+1)$。</li><li>pop 操作：如果栈中有数字可以出栈（即 $y&gt;0$），我们可以将栈顶数字移出到输出序列中。这不会改变未入栈的数字个数 $x$，但会减少栈中的数字个数 $y$。因此，该操作对应于 $\operatorname{C}(x,y-1)$。</li></ul><p>递归的边界条件是：当 $x&#x3D;0 \land y&#x3D;n$ 时，表示所有数字已成功输出为一个序列，这算作一种有效方式，返回 $1$；其他不合法状态（如 $x&lt;0 \lor y&gt;n$）返回 $0$。</p><p>递归太慢，所以我们可以用 DP，转移方程是：<br>$$f_{x,y}&#x3D;f_{x-1,y+1}+f_{x,y-1}$$</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> f[<span class="hljs-number">20</span>][<span class="hljs-number">20</span>],n;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>cin&gt;&gt;n;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> x=<span class="hljs-number">0</span>;x&lt;=n;x++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> y=<span class="hljs-number">0</span>;y&lt;=n;y++)&#123;<br><span class="hljs-keyword">if</span>(!x) f[x][y]=<span class="hljs-number">1</span>;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(!y) f[x][y]=f[x<span class="hljs-number">-1</span>][y<span class="hljs-number">+1</span>];<br><span class="hljs-keyword">else</span> f[x][y]=f[x<span class="hljs-number">-1</span>][y<span class="hljs-number">+1</span>]+f[x][y<span class="hljs-number">-1</span>];<br>&#125;<br>&#125;<br>cout&lt;&lt;f[n][<span class="hljs-number">0</span>];<br>&#125;<br></code></pre></td></tr></table></figure><p>有问题请指出！</p><p>感谢 @<a href="/user/1418820">NJYgocrazy</a> 指出一个小错误。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>动态规划 DP</tag>
+      
+      <tag>数学</tag>
+      
+      <tag>递推</tag>
+      
+      <tag>Catalan 数</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>题解：P1087 [NOIP 2004 普及组] FBI 树</title>
     <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1087%20%5BNOIP%202004%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20FBI%20%E6%A0%91/"/>
     <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1087%20%5BNOIP%202004%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20FBI%20%E6%A0%91/</url>

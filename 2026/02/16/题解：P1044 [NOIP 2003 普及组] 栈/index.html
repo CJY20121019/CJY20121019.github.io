@@ -19,27 +19,27 @@
   <meta name="author" content="__CJY__">
   <meta name="keywords" content="">
   
-    <meta name="description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;o2ttrsv4 点个赞吧！  题目其实很简单，直接按照题意递归模拟就完事了。 思路定义一个递归函数 $\operatorname{solve}(l,r)$，其中 $l,r$ 表示当前子串的起始和结束索引。这个函数负责构造索引在 $[l,r]$ 里的子串对应的子树，并返回该子树的类型。 函数里面是这样的：  我们将子串分为左右">
+    <meta name="description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;v9r07ta2 点个赞吧！  思路假设我们用一个函数 $\operatorname{C}(x,y)$ 表示：  $x$：当前还未入栈的数字个数。 $y$：当前栈中的数字个数。  我们的目标是计算 $\operatorname{C}(n,0)$，即从 $n$ 个数字开始，生成输出序列的方式。 在任何状态下，我们有两种选择：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="题解：P1087 [NOIP 2004 普及组] FBI 树">
-<meta property="og:url" content="https://cjy20121019.github.io/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1087%20%5BNOIP%202004%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20FBI%20%E6%A0%91/index.html">
+<meta property="og:title" content="题解：P1044 [NOIP 2003 普及组] 栈">
+<meta property="og:url" content="https://cjy20121019.github.io/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1044%20%5BNOIP%202003%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20%E6%A0%88/index.html">
 <meta property="og:site_name" content="__CJY__&#39;s Blog">
-<meta property="og:description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;o2ttrsv4 点个赞吧！  题目其实很简单，直接按照题意递归模拟就完事了。 思路定义一个递归函数 $\operatorname{solve}(l,r)$，其中 $l,r$ 表示当前子串的起始和结束索引。这个函数负责构造索引在 $[l,r]$ 里的子串对应的子树，并返回该子树的类型。 函数里面是这样的：  我们将子串分为左右">
+<meta property="og:description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;v9r07ta2 点个赞吧！  思路假设我们用一个函数 $\operatorname{C}(x,y)$ 表示：  $x$：当前还未入栈的数字个数。 $y$：当前栈中的数字个数。  我们的目标是计算 $\operatorname{C}(n,0)$，即从 $n$ 个数字开始，生成输出序列的方式。 在任何状态下，我们有两种选择：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-16T09:03:56.000Z">
-<meta property="article:modified_time" content="2026-02-16T09:05:00.692Z">
+<meta property="article:published_time" content="2026-02-16T09:05:27.000Z">
+<meta property="article:modified_time" content="2026-02-16T09:08:07.079Z">
 <meta property="article:author" content="__CJY__">
-<meta property="article:tag" content="字符串">
-<meta property="article:tag" content="搜索">
-<meta property="article:tag" content="树形数据结构">
-<meta property="article:tag" content="递归">
+<meta property="article:tag" content="Catalan 数">
+<meta property="article:tag" content="动态规划 DP">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="递推">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>题解：P1087 [NOIP 2004 普及组] FBI 树 - __CJY__&#39;s Blog</title>
+  <title>题解：P1044 [NOIP 2003 普及组] 栈 - __CJY__&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -220,7 +220,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="题解：P1087 [NOIP 2004 普及组] FBI 树"></span>
+            <span id="subtitle" data-typed-text="题解：P1044 [NOIP 2003 普及组] 栈"></span>
           
         </div>
 
@@ -231,7 +231,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-16 17:03" pubdate>
+        <time datetime="2026-02-16 17:05" pubdate>
           2026年2月16日 下午
         </time>
       </span>
@@ -243,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          323 字
+          421 字
         
       </span>
     
@@ -254,7 +254,7 @@
         
         
         
-          3 分钟
+          4 分钟
         
       </span>
     
@@ -300,12 +300,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">题解：P1087 [NOIP 2004 普及组] FBI 树</h1>
+            <h1 id="seo-header">题解：P1044 [NOIP 2003 普及组] 栈</h1>
             
               <p id="updated-time" class="note note-warning" style="display: none">
                 
                   
-                    本文最后更新于 2026-02-16T17:05:00+08:00
+                    本文最后更新于 2026-02-16T17:08:07+08:00
                   
                   
 
@@ -315,22 +315,25 @@
             
               <div class="markdown-body">
                 
-                <p><strong>原文：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/o2ttrsv4">https://www.luogu.com.cn/article/o2ttrsv4</a> 点个赞吧！</strong></p>
+                <p><strong>原文：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/v9r07ta2">https://www.luogu.com.cn/article/v9r07ta2</a> 点个赞吧！</strong></p>
 <hr>
-<p>题目其实很简单，直接按照题意递归模拟就完事了。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>定义一个递归函数 $\operatorname{solve}(l,r)$，其中 $l,r$ 表示当前子串的起始和结束索引。这个函数负责构造索引在 $[l,r]$ 里的子串对应的子树，并返回该子树的类型。</p>
-<p>函数里面是这样的：</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>假设我们用一个函数 $\operatorname{C}(x,y)$ 表示：</p>
 <ul>
-<li>我们将子串分为左右两部分，用 $mid$ 来表示中间值。</li>
-<li>处理左右子树，分别为 $\operatorname{solve}(l,mid),\operatorname{solve}(mid+1,r)$。</li>
-<li>处理根节点：<ul>
-<li>遍历 $[l,r]$，统计 $0$ 和 $1$ 的个数，分别记作 $c_0,c_1$。</li>
-<li>如果 $c_0&gt;0 \land c_1&gt;0$，输出 <code>F</code>；否则如果 $c_0&gt;0$，输出 <code>B</code>；否则，输出 <code>I</code>。</li>
+<li>$x$：当前还未入栈的数字个数。</li>
+<li>$y$：当前栈中的数字个数。</li>
 </ul>
-</li>
+<p>我们的目标是计算 $\operatorname{C}(n,0)$，即从 $n$ 个数字开始，生成输出序列的方式。</p>
+<p>在任何状态下，我们有两种选择：</p>
+<ul>
+<li>push 操作：如果还有数字可以入栈（即 $x&gt;0$），我们可以将一个数字从输入序列中移入栈中。这会减少未入栈的数字个数 $x$，同时增加栈中的数字个数 $y$。因此，该操作对应于 $\operatorname{C}(x-1,y+1)$。</li>
+<li>pop 操作：如果栈中有数字可以出栈（即 $y&gt;0$），我们可以将栈顶数字移出到输出序列中。这不会改变未入栈的数字个数 $x$，但会减少栈中的数字个数 $y$。因此，该操作对应于 $\operatorname{C}(x,y-1)$。</li>
 </ul>
-<p>主函数里面调用 $\operatorname{solve}(0,2^n-1)$ 即可（这是下标从 $0$ 开始的代码，若下标从 $1$ 开始，则为 $\operatorname{solve}(1,2^n)$）。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br>string s;<span class="hljs-type">int</span> n;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r)</span></span>&#123;<br>	<span class="hljs-type">int</span> mid=(l+r)/<span class="hljs-number">2</span>,c0=<span class="hljs-number">0</span>,c1=<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">if</span>(l!=r) <span class="hljs-built_in">solve</span>(l,mid),<span class="hljs-built_in">solve</span>(mid<span class="hljs-number">+1</span>,r);<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=l;i&lt;=r;i++)&#123;<br>		<span class="hljs-keyword">if</span>(s[i]==<span class="hljs-string">&#x27;0&#x27;</span>) c0++;<br>		<span class="hljs-keyword">else</span> c1++;<br>	&#125;<br>	<span class="hljs-keyword">if</span>(c0&amp;&amp;c1) cout&lt;&lt;<span class="hljs-string">&#x27;F&#x27;</span>;<br>	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(c0) cout&lt;&lt;<span class="hljs-string">&#x27;B&#x27;</span>;<br>	<span class="hljs-keyword">else</span> cout&lt;&lt;<span class="hljs-string">&#x27;I&#x27;</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	cin&gt;&gt;n&gt;&gt;s,<span class="hljs-built_in">solve</span>(<span class="hljs-number">0</span>,<span class="hljs-built_in">pow</span>(<span class="hljs-number">2</span>,n)<span class="hljs-number">-1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>递归的边界条件是：当 $x&#x3D;0 \land y&#x3D;n$ 时，表示所有数字已成功输出为一个序列，这算作一种有效方式，返回 $1$；其他不合法状态（如 $x&lt;0 \lor y&gt;n$）返回 $0$。</p>
+<p>递归太慢，所以我们可以用 DP，转移方程是：<br>$$f_{x,y}&#x3D;f_{x-1,y+1}+f_{x,y-1}$$</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> f[<span class="hljs-number">20</span>][<span class="hljs-number">20</span>],n;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	cin&gt;&gt;n;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> x=<span class="hljs-number">0</span>;x&lt;=n;x++)&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> y=<span class="hljs-number">0</span>;y&lt;=n;y++)&#123;<br>			<span class="hljs-keyword">if</span>(!x) f[x][y]=<span class="hljs-number">1</span>;<br>			<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(!y) f[x][y]=f[x<span class="hljs-number">-1</span>][y<span class="hljs-number">+1</span>];<br>			<span class="hljs-keyword">else</span> f[x][y]=f[x<span class="hljs-number">-1</span>][y<span class="hljs-number">+1</span>]+f[x][y<span class="hljs-number">-1</span>];<br>		&#125;<br>	&#125;<br>	cout&lt;&lt;f[n][<span class="hljs-number">0</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>有问题请指出！</p>
+<p>感谢 @<a href="/user/1418820">NJYgocrazy</a> 指出一个小错误。</p>
+
                 
               </div>
             
@@ -342,13 +345,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="print-no-link">#字符串</a>
+        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-DP/" class="print-no-link">#动态规划 DP</a>
       
-        <a href="/tags/%E6%90%9C%E7%B4%A2/" class="print-no-link">#搜索</a>
+        <a href="/tags/%E6%95%B0%E5%AD%A6/" class="print-no-link">#数学</a>
       
-        <a href="/tags/%E6%A0%91%E5%BD%A2%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="print-no-link">#树形数据结构</a>
+        <a href="/tags/%E9%80%92%E6%8E%A8/" class="print-no-link">#递推</a>
       
-        <a href="/tags/%E9%80%92%E5%BD%92/" class="print-no-link">#递归</a>
+        <a href="/tags/Catalan-%E6%95%B0/" class="print-no-link">#Catalan 数</a>
       
     </div>
   
@@ -360,8 +363,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>题解：P1087 [NOIP 2004 普及组] FBI 树</div>
-      <div>https://cjy20121019.github.io/2026/02/16/题解：P1087 [NOIP 2004 普及组] FBI 树/</div>
+      <div>题解：P1044 [NOIP 2003 普及组] 栈</div>
+      <div>https://cjy20121019.github.io/2026/02/16/题解：P1044 [NOIP 2003 普及组] 栈/</div>
     </div>
     <div class="license-meta">
       
@@ -398,18 +401,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1044%20%5BNOIP%202003%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20%E6%A0%88/" title="题解：P1044 [NOIP 2003 普及组] 栈">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">题解：P1044 [NOIP 2003 普及组] 栈</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP11996%20%E6%88%91%E6%98%AF%E9%BB%84%E8%89%B2%E6%81%90%E9%BE%99%E5%A4%A7%E5%B0%86%E5%86%9B/" title="题解：P11996 我是黄色恐龙大将军">
-                        <span class="hidden-mobile">题解：P11996 我是黄色恐龙大将军</span>
+                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1087%20%5BNOIP%202004%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20FBI%20%E6%A0%91/" title="题解：P1087 [NOIP 2004 普及组] FBI 树">
+                        <span class="hidden-mobile">题解：P1087 [NOIP 2004 普及组] FBI 树</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
