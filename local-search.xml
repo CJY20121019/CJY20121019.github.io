@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>题解：P14954 520</title>
+    <link href="/2026/02/15/main/"/>
+    <url>/2026/02/15/main/</url>
+    
+    <content type="html"><![CDATA[<p>感觉其他题解讲的都不太清楚，我来讲讲，可能有些重复，请见谅！</p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol><li>首先先把已有的 $520$ 找出来，并将它们标记为空。</li><li>再把缺一个数字的（即 $52,20,50$）算上。</li><li>按照“优先使用当前最不稀缺的插入字符”的贪心策略用单个字符加两个插入字符形成 $520$。</li><li>剩下的插入字符直接组成完整的 $520$，加上。</li></ol><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> T,n,a,b,c,res,s1,s2,s3;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>cin&gt;&gt;T;<br><span class="hljs-keyword">while</span>(T--)&#123;<br>cin&gt;&gt;n&gt;&gt;a&gt;&gt;b&gt;&gt;c,res=s1=s2=s3=<span class="hljs-number">0</span>;<br>string s;cin&gt;&gt;s;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n<span class="hljs-number">-2</span>;i++)&#123;<span class="hljs-comment">//第一步</span><br><span class="hljs-keyword">if</span>(s.<span class="hljs-built_in">substr</span>(i,<span class="hljs-number">3</span>)==<span class="hljs-string">&quot;520&quot;</span>) res++,s[i]=s[i<span class="hljs-number">+1</span>]=s[i<span class="hljs-number">+2</span>]=<span class="hljs-string">&#x27; &#x27;</span>;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n<span class="hljs-number">-1</span>;i++)&#123;<span class="hljs-comment">//第二步</span><br><span class="hljs-keyword">if</span>(s.<span class="hljs-built_in">substr</span>(i,<span class="hljs-number">2</span>)==<span class="hljs-string">&quot;52&quot;</span>&amp;&amp;c) res++,c--,s[i]=s[i<span class="hljs-number">+1</span>]=<span class="hljs-string">&#x27; &#x27;</span>;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(s.<span class="hljs-built_in">substr</span>(i,<span class="hljs-number">2</span>)==<span class="hljs-string">&quot;20&quot;</span>&amp;&amp;a) res++,a--,s[i]=s[i<span class="hljs-number">+1</span>]=<span class="hljs-string">&#x27; &#x27;</span>;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(s.<span class="hljs-built_in">substr</span>(i,<span class="hljs-number">2</span>)==<span class="hljs-string">&quot;50&quot;</span>&amp;&amp;b) res++,b--,s[i]=s[i<span class="hljs-number">+1</span>]=<span class="hljs-string">&#x27; &#x27;</span>;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<span class="hljs-comment">//统计三种数字的个数</span><br><span class="hljs-keyword">if</span>(s[i]==<span class="hljs-string">&#x27;5&#x27;</span>) s1++;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(s[i]==<span class="hljs-string">&#x27;2&#x27;</span>) s2++;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(s[i]==<span class="hljs-string">&#x27;0&#x27;</span>) s3++;<span class="hljs-comment">//注意这里不能用 else，因为 s[i] 有可能为空格</span><br>&#125;<br><span class="hljs-keyword">while</span>(s1||s2||s3)&#123;<span class="hljs-comment">//第三步</span><br><span class="hljs-keyword">if</span>(a&gt;=c&amp;&amp;b&gt;=c&amp;&amp;s3&amp;&amp;a&amp;&amp;b) res++,s3--,a--,b--;<span class="hljs-comment">//如果 a 和 b 都 &gt;= c，且有 0 可用，则消耗 a 和 b</span><br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(a&gt;=b&amp;&amp;c&gt;=b&amp;&amp;s2&amp;&amp;a&amp;&amp;c) res++,s2--,a--,c--;<span class="hljs-comment">//同上</span><br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(b&gt;=a&amp;&amp;c&gt;=a&amp;&amp;s1&amp;&amp;b&amp;&amp;c) res++,s1--,b--,c--;<span class="hljs-comment">//同上</span><br><span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;<br>&#125;<br>res+=<span class="hljs-built_in">min</span>(&#123;a,b,c&#125;),cout&lt;&lt;res&lt;&lt;<span class="hljs-string">&#x27;\n&#x27;</span>;<span class="hljs-comment">//第四步</span><br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>贪心,字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2026/02/15/hello-world/"/>
+    <url>/2026/02/15/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
