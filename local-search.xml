@@ -4,6 +4,305 @@
   
   
   <entry>
+    <title>题解：CF393B Three matrices</title>
+    <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9ACF393B%20Three%20matrices/"/>
+    <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9ACF393B%20Three%20matrices/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/xyoaxhpt">https://www.luogu.com.cn/article/xyoaxhpt</a> 点个赞吧！</strong></p><hr><p><strong>这是一道简单的模拟题</strong></p><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol><li>我们先把 $W$ 矩阵读入进来。</li><li>然后根据题意，对 $W,A,B$ 数组进行模拟。由：</li></ol><ul><li><p>$ A_{i,j}&#x3D;A_{j,i} $</p></li><li><p>$ B_{i,j}&#x3D;-B_{j,i} $</p></li><li><p>$ W_{i,j}&#x3D;A_{i,j}+B_{i,j} $</p></li></ul><p>可得出：</p><ul><li><p>$ A_{i,j}&#x3D;A_{j,i} $ </p></li><li><p>$ B_{i,j}&#x3D;-B_{j,i} $</p></li><li><p>$ W_{i,j}-W_{j,i}&#x3D;B_{i,j} \times 2 $</p></li></ul><ol start="3"><li>操作完毕后，输出 $A,B$ 数组就行了。</li></ol><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">double</span> a[<span class="hljs-number">171</span>][<span class="hljs-number">171</span>],b[<span class="hljs-number">171</span>][<span class="hljs-number">171</span>],w[<span class="hljs-number">171</span>][<span class="hljs-number">171</span>];<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-type">int</span> n;cin&gt;&gt;n;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++) cin&gt;&gt;w[i][j];<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)&#123;<br><span class="hljs-type">double</span> t=w[i][j]-w[j][i];<br>t*=<span class="hljs-number">0.5</span>,b[i][j]=t,a[i][j]=w[i][j]-b[i][j],b[j][i]=-t,a[j][i]=w[j][i]-b[j][i];<br>&#125;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++) <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.8lf &quot;</span>,a[i][j]);<br>cout&lt;&lt;endl;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++) <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.8lf &quot;</span>,b[i][j]);<br>cout&lt;&lt;endl;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模拟</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解：SP64 PERMUT1 - Permutations</title>
+    <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9ASP64%20PERMUT1%20-%20Permutations/"/>
+    <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9ASP64%20PERMUT1%20-%20Permutations/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/88t0ujch">https://www.luogu.com.cn/article/88t0ujch</a> 点个赞吧！</strong></p><hr><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>对于一个数列 $a_i$，如果有 $i&lt;j$ 且 $a_i&gt;a_j$，那么我们称它们为一对逆序对数。对于一个由 $1 \sim n$ 组成的排列，可以很容易求出有多少个逆序对数。求逆序对数为 $m$ 的排列有多少个？答案对 $10000$ 取模。</p><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>设 $f_{i,j}$ 表示由 $1$ 到 $i$ 组成的所有排列中，逆序对数量为 $j$ 的排列个数。<br>考虑把数字 $i$ 插入到之前的排列中。将数字 $i$ 插入到位置 $k$ 后，会产生 $i-k-1$ 个逆序对数。<br>$$f_{i,j}&#x3D;\sum_{k&#x3D;0}^{i-1}f_{i-1,j-(i-k-1)}&#x3D;\sum_{k&#x3D;\max(0,j-i+1)}^{j}f_{i-1,k}$$<br>时间复杂度 $O(n^2 \cdot k)$ 无法通过本题。</p><p>我们需要转移的同时记录<strong>前缀和</strong>，设：<br>$$s_{i,j}&#x3D;\sum_{k&#x3D;0}^{j}f_{i,k}$$<br>那么：<br>$$f_{i,j}&#x3D;\begin{cases}s_{i-1,j}-s_{i-1,j-i},j-i \le 0\s_{i-1,j},j-i&lt;0\end{cases}$$</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> f[<span class="hljs-number">100</span>][<span class="hljs-number">100</span>]=&#123;&#123;<span class="hljs-number">1</span>&#125;&#125;,s[<span class="hljs-number">100</span>][<span class="hljs-number">100</span>],n,k;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-type">int</span> T;cin&gt;&gt;T;<br><span class="hljs-keyword">while</span>(T--)&#123;<br>cin&gt;&gt;n&gt;&gt;k;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;=k;i++) s[<span class="hljs-number">0</span>][i]=<span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;=k;j++)&#123;<br>f[i][j]=s[i<span class="hljs-number">-1</span>][j];<br><span class="hljs-keyword">if</span>(j-i&gt;=<span class="hljs-number">0</span>) f[i][j]-=s[i<span class="hljs-number">-1</span>][j-i];<br>s[i][j]=f[i][j];<br><span class="hljs-keyword">if</span>(j) s[i][j]+=s[i][j<span class="hljs-number">-1</span>];<br>&#125;<br>&#125;<br>cout&lt;&lt;f[n][k]&lt;&lt;endl;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>此外，这题有<em><strong>四倍经验</strong></em>！</p><p>它们是：<a href="https://www.luogu.com.cn/problem/P1521">P1521 求逆序对</a>、<a href="https://www.luogu.com.cn/problem/P2513">P2513 [HAOI2009] 逆序对数列</a>、<a href="https://www.luogu.com.cn/problem/P6323">P6323 [COCI2006-2007#4] ZBRKA</a>和<a href="https://www.luogu.com.cn/problem/SP64">本题</a>！</p><h3 id="P1521-求逆序对-Code"><a href="#P1521-求逆序对-Code" class="headerlink" title="P1521 求逆序对 Code"></a><a href="https://www.luogu.com.cn/problem/P1521">P1521 求逆序对</a> Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> mod=<span class="hljs-number">10000</span>;<br><span class="hljs-type">int</span> f[<span class="hljs-number">105</span>][<span class="hljs-number">5005</span>]=&#123;&#123;<span class="hljs-number">1</span>&#125;&#125;,s[<span class="hljs-number">105</span>][<span class="hljs-number">5005</span>],n,k;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>cin&gt;&gt;n&gt;&gt;k;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;=k;i++) s[<span class="hljs-number">0</span>][i]=<span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;=k;j++)&#123;<br>f[i][j]=s[i<span class="hljs-number">-1</span>][j];<br><span class="hljs-keyword">if</span>(j-i&gt;=<span class="hljs-number">0</span>) f[i][j]-=s[i<span class="hljs-number">-1</span>][j-i];<br>s[i][j]=f[i][j];<br><span class="hljs-keyword">if</span>(j) s[i][j]+=s[i][j<span class="hljs-number">-1</span>];<br>f[i][j]%=mod,s[i][j]%=mod;<br>&#125;<br>&#125;<br>cout&lt;&lt;(f[n][k]+mod)%mod;<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="P2513-HAOI2009-逆序对数列-Code"><a href="#P2513-HAOI2009-逆序对数列-Code" class="headerlink" title="P2513 [HAOI2009] 逆序对数列 Code"></a><a href="https://www.luogu.com.cn/problem/P2513">P2513 [HAOI2009] 逆序对数列</a> Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> mod=<span class="hljs-number">10000</span>;<br><span class="hljs-type">int</span> f[<span class="hljs-number">1005</span>][<span class="hljs-number">1005</span>]=&#123;&#123;<span class="hljs-number">1</span>&#125;&#125;,s[<span class="hljs-number">1005</span>][<span class="hljs-number">1005</span>],n,k;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>cin&gt;&gt;n&gt;&gt;k;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;=k;i++) s[<span class="hljs-number">0</span>][i]=<span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;=k;j++)&#123;<br>f[i][j]=s[i<span class="hljs-number">-1</span>][j];<br><span class="hljs-keyword">if</span>(j-i&gt;=<span class="hljs-number">0</span>) f[i][j]-=s[i<span class="hljs-number">-1</span>][j-i];<br>s[i][j]=f[i][j];<br><span class="hljs-keyword">if</span>(j) s[i][j]+=s[i][j<span class="hljs-number">-1</span>];<br>f[i][j]%=mod,s[i][j]%=mod;<br>&#125;<br>&#125;<br>cout&lt;&lt;(f[n][k]+mod)%mod;<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="P6323-COCI2006-2007-4-ZBRKA-Code"><a href="#P6323-COCI2006-2007-4-ZBRKA-Code" class="headerlink" title="P6323 [COCI2006-2007#4] ZBRKA Code"></a><a href="https://www.luogu.com.cn/problem/P6323">P6323 [COCI2006-2007#4] ZBRKA</a> Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> mod=<span class="hljs-number">1e9</span><span class="hljs-number">+7</span>,maxn=<span class="hljs-number">1e3</span><span class="hljs-number">+5</span>,maxc=<span class="hljs-number">1e4</span><span class="hljs-number">+5</span>;<br><span class="hljs-type">int</span> f[<span class="hljs-number">2</span>][maxc],s[<span class="hljs-number">2</span>][maxc],n,c,x=<span class="hljs-number">1</span>,y;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    cin&gt;&gt;n&gt;&gt;c;<br>    f[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]=s[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=c;i++) s[<span class="hljs-number">1</span>][i]=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">2</span>;i&lt;=n;i++)&#123;<br><span class="hljs-built_in">swap</span>(x,y),f[x][<span class="hljs-number">0</span>]=s[x][<span class="hljs-number">0</span>]=<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=c;j++)&#123;<br>            f[x][j]=s[y][j];<br>            <span class="hljs-keyword">if</span>(j-i&gt;=<span class="hljs-number">0</span>) f[x][j]=(f[x][j]-s[y][j-i])%mod;<br>            s[x][j]=(s[x][j<span class="hljs-number">-1</span>]+f[x][j])%mod;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(f[x][c]&lt;<span class="hljs-number">0</span>) f[x][c]+=mod;<br>    cout&lt;&lt;f[x][c];<br>&#125;<br></code></pre></td></tr></table></figure><p><strong>大差不差，都一样！看在我给四倍经验和<code>std</code>的份儿上，点个赞吧！</strong></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>动态规划 DP</tag>
+      
+      <tag>前缀和</tag>
+      
+      <tag>线性 DP</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>CSP-J 2024 游记</title>
+    <link href="/2026/02/16/CSP-J%202024%20%E6%B8%B8%E8%AE%B0/"/>
+    <url>/2026/02/16/CSP-J%202024%20%E6%B8%B8%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/dc2jdedt">https://www.luogu.com.cn/article/dc2jdedt</a> 点个赞吧！</strong></p><hr><h1 id="我的信息"><a href="#我的信息" class="headerlink" title="我的信息"></a>我的信息</h1><table><thead><tr><th align="center">省份</th><th align="center">城市</th><th align="center">所在区</th><th align="center">坐标</th><th align="center">性别</th><th align="center">年龄</th><th align="center">学校</th></tr></thead><tbody><tr><td align="center">$浙江省$</td><td align="center">$宁波市$</td><td align="center">$鄞州区$</td><td align="center">$\texttt{ZJ&#x2F;NB&#x2F;YZ}$</td><td align="center">$男$</td><td align="center">$12$</td><td align="center">$堇山小学$</td></tr></tbody></table><h1 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h1><h2 id="Day-365-5-15"><a href="#Day-365-5-15" class="headerlink" title="Day $-365+[5,15]$"></a>Day $-365+[5,15]$</h2><p><code>CSP</code>$2023$ 的成绩出来了，我考了 $43$ 分，毫无悬念地没进复赛，当年 $\texttt{ZJ}$ 分数线：$72$，拿了<strong>全国三等</strong>！</p><p>那时，我决定发奋图强，正取 $2024$ 年进复赛。</p><h2 id="Day-1"><a href="#Day-1" class="headerlink" title="Day $-1$"></a>Day $-1$</h2><p>这一天是周五，一回到家我赶紧肝完作业，肝起了初赛。这天晚上我哪儿也没去，紧赶慢赶终于把往年真题和洛谷SCP刷完了！</p><h2 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day $1$"></a>Day $1$</h2><h3 id="赛前"><a href="#赛前" class="headerlink" title="赛前"></a>赛前</h3><p>这一天我早早地起了床，吃完早饭后，我抽了一下运势，发现是：<br>$$<br>\color{orange}陈嘉逸2012\color{black}\ 的运势\<br>\color{red}\huge§\ 中吉\ §\<br>$$<br>$$<br>\color{red}宜：参加 CSP\color{black}\  \  \ 忌：体育锻炼\<br>\color{red}祝你 RP++\  \  \ \color{black}消耗的能量全吃回来了\<br>\color{red}宜：出公开赛\color{black}\  \  \ 忌：抽卡\<br>\color{red}rated，评价很高\  \  \ \color{black}只有保底<br>$$<br>从那一刻起，我就知道了，今年有没进复赛……</p><p>到 $\texttt{镇海蛟川书院}$ 以后，我等了好久。终于能进考场了，里面有空调！<del>比我们学校好多了。</del></p><h3 id="赛时"><a href="#赛时" class="headerlink" title="赛时"></a>赛时</h3><p>卷子发下来了，我阅览了一遍，发现怎么那么简单！比平时刷的卷子简单多了！</p><p>就这样我开始奋笔疾书，可是第一题难住了我，我没有复习过<code>INT_MIN</code>和<code>INT_MAX</code>。还有一题格雷码，也不会。</p><p>选择题做完了，我开始做阅读程序题。发现简单多了，模拟一遍就行了，码量也很少，顶多一个<code>递归</code>或<code>DP</code>。</p><p>我开始肝程序填空题了。第一道很简单。第二道汉诺塔问题之前准备区赛时做到过，可是忘了，只能自己想了。<del>结果有一道本来是对的题目最后被我改错了，呜呜！</del></p><h3 id="赛后"><a href="#赛后" class="headerlink" title="赛后"></a>赛后</h3><p>出校门以后，我高高兴兴地更爸爸说：“这次很简单，应该能进复赛！”爸爸却开兴不起来，他说他在校门口听见很多人也是这么说的，大家都觉得简单，分数线也会增加的。我也高兴不起来了。</p><h2 id="Day-5-15"><a href="#Day-5-15" class="headerlink" title="Day $[5,15]$"></a>Day $[5,15]$</h2><p>终于出分数线了，考了 $81$ 分，而分数线是 $89$，没进复赛。</p><p>不过，为这次的分数超过了去年的 $\texttt{ZJ}$ 分数线整整 $9$ 分，而且拿了<strong>全国一等</strong>，还是挺开心的！</p><h1 id="复赛"><a href="#复赛" class="headerlink" title="复赛"></a>复赛</h1><p>虽然我没进复赛，可是我参加了洛谷的<a href="https://www.luogu.com.cn/contest/209924">CSP-J 2024 自测</a>。</p><p>我发现第一题特别简单，我能用两种方法秒了。</p><h3 id="P11227-CSP-J-2024-扑克牌-Code-1"><a href="#P11227-CSP-J-2024-扑克牌-Code-1" class="headerlink" title="P11227 [CSP-J 2024] 扑克牌 Code#1"></a><a href="https://www.luogu.com.cn/problem/P11227">P11227 [CSP-J 2024] 扑克牌</a> Code#1</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br>map&lt;string,<span class="hljs-type">bool</span>&gt;mp;<br><span class="hljs-type">int</span> n,ans;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>cin&gt;&gt;n;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>string s;cin&gt;&gt;s;<br><span class="hljs-keyword">if</span>(!mp[s]) ans++,mp[s]=<span class="hljs-number">1</span>;<br>&#125;<br>cout&lt;&lt;<span class="hljs-number">52</span>-ans;<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="P11227-CSP-J-2024-扑克牌-Code-2"><a href="#P11227-CSP-J-2024-扑克牌-Code-2" class="headerlink" title="P11227 [CSP-J 2024] 扑克牌 Code#2"></a><a href="https://www.luogu.com.cn/problem/P11227">P11227 [CSP-J 2024] 扑克牌</a> Code#2</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br>set&lt;string&gt;s;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-type">int</span> n;cin&gt;&gt;n;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>string t;cin&gt;&gt;t;<br>s.<span class="hljs-built_in">insert</span>(t);<br>&#125;<br>cout&lt;&lt;<span class="hljs-number">52</span>-s.<span class="hljs-built_in">size</span>();<br>&#125;<br></code></pre></td></tr></table></figure><p>第二题也过了，再此不贴代码了。</p><p>第三、四两题我看都没看，看这难度就知道了。</p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>我明年会同时参加 $\texttt{J}$ 和 $\texttt{S}$，预祝我进复赛！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活·游记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>2024</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解：B4048 [语言月赛 202410] 断章取义</title>
+    <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AB4048%20%5B%E8%AF%AD%E8%A8%80%E6%9C%88%E8%B5%9B%20202410%5D%20%E6%96%AD%E7%AB%A0%E5%8F%96%E4%B9%89/"/>
+    <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AB4048%20%5B%E8%AF%AD%E8%A8%80%E6%9C%88%E8%B5%9B%20202410%5D%20%E6%96%AD%E7%AB%A0%E5%8F%96%E4%B9%89/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/n6rtx0xe">https://www.luogu.com.cn/article/n6rtx0xe</a> 点个赞吧！</strong></p><hr><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>Update in $2024&#x2F;11&#x2F;17 \sim 2024&#x2F;11&#x2F;20$</strong></p><p><a href="https://www.luogu.com.cn/problem/B4048">题目传送门</a>。</p><p><strong>这题似乎有坑，搞了半天！<del>可能对别的大佬来说很简单！</del></strong></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我们使用<code>string</code>提供的<code>find</code>函数直接搜索字符串中是否存在子串 $\texttt{not}$，每次让计数器自增一。</p><p>你会获得 $10$ 分。</p><p>题目中说，每一轮剪辑找到 $S$ 中所有子串 $\texttt{not}$，而我的代码中一次只找一次，所以会<code>WA</code>。</p><p>设 $S&#x3D;\texttt{notnot}$。</p><ul><li><strong>错误方法</strong>：第一轮结束后 $S&#x3D;\texttt{not}$，第二轮结束后 $S$ 为空，剪辑轮数为 $2$。</li><li><strong>正确方法</strong>：第一轮把所有 $\texttt{not}$ 删了，$S$ 为空，剪辑轮数为 $1$。</li></ul><p>我们每次遍历一遍 $S$，用<code>substr</code>判断是否有 $\texttt{not}$，如果有就用<code>erase</code>删除 $\texttt{not}$。</p><p>你会获得 $70$ 分。</p><p>设 $i$ 为循环变量，删除 $\texttt{not}$ 之后就不应该<code>i++</code>了，否则就会少检测一次。</p><p>设 $S&#x3D;\texttt{notnot}$。</p><p>第一轮把 $\texttt{not}$ 删掉，$S&#x3D;\texttt{not}$，当前 $i$ 为 $0$，每次循环都会<code>i++</code>，所以 $i$ 变成 $1$ 了，此时 $S_i&#x3D;\texttt{o}$，就检测不到下一个 $\texttt{not}$ 了。</p><p>我们循环时不写<code>i++</code>，当 $s_i,s_{i+1},s_{i+2} \ne \texttt{not}$ 时才<code>i++</code>。</p><p>如果你是像我这样写的话，你就错了：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;s.<span class="hljs-built_in">size</span>()<span class="hljs-number">-2</span>;)<br></code></pre></td></tr></table></figure><p>你会获得 $90$ 分，有一个<code>RE</code>。</p><p><code>s.size()</code>的类型是<code>size_t</code>，<code>size_t</code>只能存无符号整数，故不能存负数，当 $|s|&lt;2$ 时，$|s|-2&lt;0$，这样会溢出，并变成一个很大的整数，所以会越界。</p><p>我们将<code>s.size()</code>强制转整。</p><p>这样就 $100$ 分了！</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">while</span>(s.<span class="hljs-built_in">find</span>(<span class="hljs-string">&quot;not&quot;</span>)!=string::npos)&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;(<span class="hljs-type">int</span>)s.<span class="hljs-built_in">size</span>()<span class="hljs-number">-2</span>;)&#123;<br><span class="hljs-keyword">if</span>(s.<span class="hljs-built_in">substr</span>(i,<span class="hljs-number">3</span>)==<span class="hljs-string">&quot;not&quot;</span>) s.<span class="hljs-built_in">erase</span>(i,<span class="hljs-number">3</span>);<br><span class="hljs-keyword">else</span> i++;<br>&#125;<br>c++;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>所以我们以后要养成好习惯，尽量把<code>s.size()</code>强制转整。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解：P8763 [蓝桥杯 2021 国 ABC] 异或变换</title>
+    <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP8763%20%5B%E8%93%9D%E6%A1%A5%E6%9D%AF%202021%20%E5%9B%BD%20ABC%5D%20%E5%BC%82%E6%88%96%E5%8F%98%E6%8D%A2/"/>
+    <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP8763%20%5B%E8%93%9D%E6%A1%A5%E6%9D%AF%202021%20%E5%9B%BD%20ABC%5D%20%E5%BC%82%E6%88%96%E5%8F%98%E6%8D%A2/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/13me0jnl">https://www.luogu.com.cn/article/13me0jnl</a> 点个赞吧！</strong></p><hr><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>由于异或操作的性质，经过一定数量的变换后，串可能会回到其初始状态或某个之前的状态。</p><p>在这个问题中，周期 $x&#x3D;2^k$ 是满足 $2^k \ge n$ 的最小整数。<br>:::info[证明]<br>变换可以表示为在 $\text{GF(2)}$ 上的线性变换 $s’&#x3D;A \cdot s$，其中 $A$ 是 $n \times n$ 的下三角矩阵：<br>$$<br>A &#x3D; \begin{bmatrix}<br>1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \<br>1 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \<br>0 &amp; 1 &amp; 1 &amp; \cdots &amp; 0 \<br>\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>0 &amp; 0 &amp; \cdots &amp; 1 &amp; 1<br>\end{bmatrix}<br>$$<br>在 $\text{GF(2)}$ 上，这等价于 $A&#x3D;I+N$，其中 $N$ 是次对角线为 $1$ 的幂零矩阵（$N^n&#x3D;0$）。</p><p>经过 $t$ 次变换后：<br>$$A^t&#x3D;(I+N)^t&#x3D;\sum_{i&#x3D;0}^{\min(t,n-1)} \binom{t}{i} N^i$$<br>根据 <a href="https://oi-wiki.org/math/number-theory/lucas/">Lucas 定理</a>，在模 $2$ 意义下，当 $t&#x3D;2^k$ 且 $0&lt;i&lt;2^k$ 时，$\binom{2^k}{i} \equiv 0 \pmod{2}$。因此：<br>$$A^{2^k}&#x3D;I+N^{2^k}$$<br>当 $2^k \ge n$ 时，$N^{2^k}&#x3D;0$，所以 $A^{2^k}&#x3D;I$。</p><p>可以证明 $2^k$ 是最小周期，因为对于更小的 $t$，$\binom{t}{1}&#x3D;t \not\equiv 0 \pmod{2}$<br>:::<br>暴力的时间复杂度为 $\Theta(nt)$，显然会超时。</p><p>由于存在周期性，我们不需要实际执行 $t$ 次变换，我们可以计算 $t \bmod x$ 来找出实际需要执行的变换次数，这大大减少了计算量，时间复杂度 $\Theta(n \cdot \min(t,2^k))$。</p><p>我们使用一个循环来执行实际需要的变换次数。在每次变换中，<strong>从右向左遍历 01 串</strong>（因为在计算 $s_i$ 时，$s_{i-1}$ 已经被更新为新值了，而不是原始值），并根据异或规则更新每个元素。</p><p><strong>十年 OI 一场空，不开 <code>long long</code> 见祖宗！</strong></p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>lines</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span> n,t,x=<span class="hljs-number">1</span>;<span class="hljs-comment">//分别表示：01 串的长度、变换次数、用于计算变换周期的辅助变量</span><br>string s;<span class="hljs-comment">//用于存储输入的 01 串</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>cin&gt;&gt;n&gt;&gt;t&gt;&gt;s;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">计算变换的周期，即找到一个最小的 x=2^k，使得 2^k&gt;=n</span><br><span class="hljs-comment">因为异或变换具有周期性，变换 x 次后会回到初始状态</span><br><span class="hljs-comment">所以实际变换次数可以取 t 对 x 的模，减少计算量</span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">while</span>(x&lt;n) x&lt;&lt;=<span class="hljs-number">1</span>;<br>t%=x;<span class="hljs-comment">//计算实际需要进行的变换次数</span><br><span class="hljs-comment">//对 01 串进行 t 次变换</span><br><span class="hljs-keyword">while</span>(t--)&#123;<br><span class="hljs-comment">//必须从右向左遍历！确保计算 s[j] 时 s[j-1] 还是原始值</span><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=n<span class="hljs-number">-1</span>;j&gt;=<span class="hljs-number">1</span>;j--) s[j]=(s[j]!=s[j<span class="hljs-number">-1</span>]?<span class="hljs-string">&#x27;1&#x27;</span>:<span class="hljs-string">&#x27;0&#x27;</span>);<span class="hljs-comment">//可替换为 s[j]=((s[j]-&#x27;0&#x27;)^(s[j-1]-&#x27;0&#x27;))+&#x27;0&#x27;;</span><br>&#125;<br>cout&lt;&lt;s;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>分治</tag>
+      
+      <tag>位运算</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解：P11279 「GFOI Round 2」Abstract String Basic</title>
+    <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP11279%20%E3%80%8CGFOI%20Round%202%E3%80%8DAbstract%20String%20Basic/"/>
+    <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP11279%20%E3%80%8CGFOI%20Round%202%E3%80%8DAbstract%20String%20Basic/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/z64g9ch7">https://www.luogu.com.cn/article/z64g9ch7</a> 点个赞吧！</strong></p><hr><p>看没人发题解，我来发一篇题解。</p><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个仅由小写字母组成的字符串 $S$，构造另一个仅由小写字母组成的字符串 $T$，使得 $\sum\limits_{i&#x3D;1}^n\sum\limits_{j&#x3D;1}^n[i \ne j][S_i \ne T_j]$ 最大化，$1 \le n \le 10^6$。</p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>显然暴力不行（<del>我也不知道怎么暴力</del>）。</p><p>我们来推一波式子。<br>$$<br>\begin{aligned}<br>\tilde\psi(S,T)<br>&amp;&#x3D;\sum_{i&#x3D;1}^n\sum_{j&#x3D;1}^n[i\neq j][S_i\neq T_j]\<br>&amp;&#x3D;n(n-1)-\sum_{i&#x3D;1}^n\sum_{j&#x3D;1}^n[i \ne j][S_i&#x3D;T_j]<br>\end{aligned}$$<br>$\sum\limits_{i&#x3D;1}^n\sum\limits_{j&#x3D;1}^n[i\neq j][S_i\neq T_j]$ 是 $S_i \ne T_j$ 的数量，我们用 $x$ 表示；$n(n-1)$ 是所有 $i \ne j$ 的数量，因为每行有一个 $i&#x3D;j$ 的元素，共有 $n$ 行，我们用 $s$ 表示；$\sum\limits_{i&#x3D;1}^n\sum\limits_{j&#x3D;1}^n[i \ne j][S_i&#x3D;T_j]$ 是 $S_i&#x3D;T_j$ 的数量，我们用 $t$ 表示。</p><p>由此我们可以得出：<br>$$x&#x3D;s-t$$<br>要使 $x$ 最大，我们要最小化 $t$。</p><p>对于每一个 $T_i$ 的贡献，你会发现填 $S$ 中出现次数最少的字母最优。</p><p>如何快速求出 $S$ 中出现次数最少的字母呢？我们知道有个函数叫做<code>min_element</code>（只是码量减少了，实际上还是遍历了一遍数组，时间复杂度不变），想要深入了解的请点 <a href="https://blog.csdn.net/m0_74017151/article/details/137978014">Link1</a> &amp; <a href="https://zhuanlan.zhihu.com/p/435905136?utm_id=0">Link2</a> &amp; <a href="https://blog.csdn.net/weixin_51566349/article/details/127979598">Link3（强烈推荐）</a>。</p><p>使用<code>min_element</code>的时间复杂度是 $\Theta(26)$，遍历一遍字符串 $S$ 的时间复杂度是 $\Theta(n)$，总时间复杂度是 $\Theta(26n)$，显然不会超时。</p><p><strong>此题有 $\text{Special Judge}$，答案不唯一！</strong></p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br>string s;<br><span class="hljs-type">int</span> c[<span class="hljs-number">26</span>],n;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>cin&gt;&gt;n&gt;&gt;s;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++) c[s[i]-<span class="hljs-string">&#x27;a&#x27;</span>]++;<span class="hljs-comment">//先统计每个字符出现的次数</span><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        c[s[i]-<span class="hljs-string">&#x27;a&#x27;</span>]--;<span class="hljs-comment">//先将s[i]字符的计数器减1，因为我们要找一个与s[i]不同的字符</span><br>        cout&lt;&lt;(<span class="hljs-type">char</span>)(<span class="hljs-string">&#x27;a&#x27;</span>+(<span class="hljs-built_in">min_element</span>(c,c<span class="hljs-number">+26</span>)-c));<br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        使用min_element(c,c+26)找到数组c中最小值的迭代器，这个最小值表示当前出现次数最少的字符</span><br><span class="hljs-comment">        将这个迭代器转换为对应的字符（通过加上&#x27;a&#x27;并转换为字符），并输出</span><br><span class="hljs-comment">        这个字符就是我们要选择的与s[i]不同的字符，因为它出现得最少，所以选择它最能增加不相似度</span><br><span class="hljs-comment">        */</span><br>        c[s[i]-<span class="hljs-string">&#x27;a&#x27;</span>]++;<span class="hljs-comment">//将s[i]字符的计数器再加1，恢复原来的状态，以便处理下一个位置</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>贪心</tag>
+      
+      <tag>字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解：P11372 「CZOI-R2」加训</title>
+    <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP11372%20%E3%80%8CCZOI-R2%E3%80%8D%E5%8A%A0%E8%AE%AD/"/>
+    <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP11372%20%E3%80%8CCZOI-R2%E3%80%8D%E5%8A%A0%E8%AE%AD/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/aji6d3z5">https://www.luogu.com.cn/article/aji6d3z5</a> 点个赞吧！</strong></p><hr><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p><a href="https://www.luogu.com.cn/problem/P11372">题目传送门</a>。</p><p>在 $k$ 维空间中，判断每个教练能看到多少个 OIer，要求视线不能被其他 OIer、障碍物或教练阻挡。</p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><del>我们先把该读得先读入进来。</del></p><p>我们遍历所有教练，对于每个教练，执行以下步骤：</p><ul><li>我们遍历所有 OIer：<ul><li>对于每个 OIer，检查它是否与当前教练在除了一个维度外其他维度都相同。</li><li>如果满足条件，则进一步检查这个不同的维度上，教练和 OIer 之间的线段是否被阻挡：<ol><li>首先，我们找到教练和 OIer 在 $k$ 维空间中唯一不同的那个维度，记为 $d$。</li><li>假设教练在维度 $d$ 上的坐标为 $cd$，OIer 在维度 $d$ 上的坐标为 $od$。</li><li>接下来，我们需要遍历所有的 OIer、障碍物和教练（除了当前正在考虑的教练和 OIer），我们检查遍历到的点是否在线段上：对于每个遍历到的点，我们检查它在维度 $d$ 上的坐标 $pd$ 是否位于 $cd$ 和 $od$ 之间，这可以通过简单的比较来实现：如果 $cd&lt;od$，则检查 $cd&lt;pd&lt;od$；如果 $cd&gt;od$，则检查 $od&lt;pd&lt;cd$。</li><li>除了维度 $d$ 之外，我们还需要确保遍历到的点在其他所有维度上都与教练和 OIer 相同。<br>这意味着，对于除了 $d$ 之外的每个维度 $i$，遍历到的点的坐标 $pi$ 应该等于教练的坐标 $ci$ 和 OIer 的坐标 $oi$。</li><li>如果一个点同时满足上述两个条件（即在维度 $d$ 上位于线段上，且在其他维度上与教练和 OIer 相同），则它阻挡了教练看向 OIer 的视线。一旦找到这样的阻挡点，我们就可以停止对当前 OIer 的检查，并标记教练不能看到这个 OIer；如果没有找到阻挡点，我们继续遍历其他的 OIer、障碍物和教练，如果遍历完所有点后都没有找到阻挡点，则教练可以看到这个 OIer。</li><li>如果教练和 OIer 之间的视线没有被阻挡，则增加计数器。</li></ol></li></ul></li><li>输出计数器。</li></ul><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>排版可能有点乱，请大家耐心看。</p><p>码字不易，打了好久，给个赞吧！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模拟</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解：P11376 [GESP202412 六级] 运送物资</title>
+    <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP11376%20%5BGESP202412%20%E5%85%AD%E7%BA%A7%5D%20%E8%BF%90%E9%80%81%E7%89%A9%E8%B5%84/"/>
+    <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP11376%20%5BGESP202412%20%E5%85%AD%E7%BA%A7%5D%20%E8%BF%90%E9%80%81%E7%89%A9%E8%B5%84/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/sqk12qpn">https://www.luogu.com.cn/article/sqk12qpn</a> 点个赞吧！</strong></p><hr><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>有 $n$ 个运输站点和 $m$ 辆货车，货车需从站点出发向 A、B 两市运送物资，并返回站点。要求制定运输计划，最小化所有货车的总行驶路程。</p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol><li><p>首先，我们读取并存储所有运输站点的位置信息 $p_i$ 和可容纳的货车数量 $c_i$。</p></li><li><p>接着，读取每辆货车的运送需求，即需要向 A 市运送的次数 $a_i$ 和向 B 市运送的次数 $b_i$，并根据 $a_i$ 和 $b_i$ 的比较，将货车分为两类：</p><ul><li>一类是去 A 市次数<strong>不少于</strong>去 B 市次数的货车集合 $F$。</li><li>另一类是去 B 市次数<strong>多于</strong>去 A 市次数的货车集合 $G$。</li></ul><p>排序过程如下：</p><ul><li>对运输站点按照位置 $p_i$ 进行升序排序。</li><li>对货车集合 $F$ 按照 $a_i-b_i$ 的降序排序。</li><li>对货车集合 $G$ 按照 $b_i-a_i$ 的降序排序。</li></ul></li><li><p>使用贪心算法来分配货车到运输站点：</p><ul><li>对于集合 $F$ 中的货车，从位置较近的运输站点开始分配。</li><li>对于集合 $G$ 中的货车，从位置较远的运输站点开始分配。</li><li>在分配过程中，确保每个运输站点的可容纳货车数量 $c_i$ 不会被超出。</li></ul></li><li><p>根据货车的分配情况、运输站点的位置 $p_i$ 以及两市之间的距离 $x$，计算每辆货车的行驶距离，并累加得到总行驶距离 $ans$。对于集合 $F,G$ 中的货车，行驶距离都为 $2\times(a_i \times p_i+b_i\times(x-p_i))$。</p></li><li><p>最后，输出计算得到的货车总行驶距离 $ans$。</p></li></ol><p>写的有点急，有问题请指出。求赞！</p><p>感谢 @<a href="/user/1014715">HuangTingFu</a> 指出错误。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>贪心</tag>
+      
+      <tag>排序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解：B4071 [GESP202412 五级] 武器强化</title>
+    <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AB4071%20%5BGESP202412%20%E4%BA%94%E7%BA%A7%5D%20%E6%AD%A6%E5%99%A8%E5%BC%BA%E5%8C%96/"/>
+    <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AB4071%20%5BGESP202412%20%E4%BA%94%E7%BA%A7%5D%20%E6%AD%A6%E5%99%A8%E5%BC%BA%E5%8C%96/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/jay65sxj">https://www.luogu.com.cn/article/jay65sxj</a> 点个赞吧！</strong></p><hr><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>重新分配强化材料给武器，使第 $1$ 种武器材料数最多，且总转移成本最小。</p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>读取武器的种类数 $n$ 和强化材料的数量 $m$。对于每个强化材料，记录其对应的武器编号和成本，并统计每种武器的材料数量和成本列表。</p><p>对每种武器的强化材料成本列表进行排序，以便后续能够高效地选择成本最低的材料。</p><p>我们定义一个函数 $f$：该函数计算了在给定第 $1$ 种武器需要达到的强化材料数量 $x$ 时，将其他武器的材料转移到第 $1$ 种武器所需的最小成本。</p><p>函数内部通过遍历每种非第 $1$ 种武器，计算需要转移的材料数量，并从该武器的成本列表中选择成本最低的材料进行转移。如果转移后第 $1$ 种武器的材料数量仍然不足 $x$，则从剩余的材料中选择成本最低的进行补充。</p><p>我们遍历一个范围，从第 $1$ 种武器的初始材料数量到总材料数量。对于每个可能的 $x$ 值，调用函数 $f$ 计算转移成本，并更新全局最小成本。最终输出全局最小成本作为结果。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>贪心</tag>
+      
+      <tag>枚举</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解：P5686 [CSP-S2019 江西] 和积和</title>
+    <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP5686%20%5BCSP-S2019%20%E6%B1%9F%E8%A5%BF%5D%20%E5%92%8C%E7%A7%AF%E5%92%8C/"/>
+    <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP5686%20%5BCSP-S2019%20%E6%B1%9F%E8%A5%BF%5D%20%E5%92%8C%E7%A7%AF%E5%92%8C/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/3r0pec8u">https://www.luogu.com.cn/article/3r0pec8u</a> 点个赞吧！</strong></p><hr><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>定义函数 $S(l,r)(1\le l\le r\le n)$ 为：<br>$$\sum_{i&#x3D;l}^ra_i \times \sum_{i&#x3D;l}^rb_i$$<br>请你求出下列式子的值：<br>$$\sum_{l&#x3D;1}^n\sum_{r&#x3D;l}^nS(l,r)$$<br>由于答案可能很大，你只需要给出答案模 $10^9+7$ 后的结果。</p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先尝试暴力，肯定会超时，所以我们要优化。</p><p>两重循环显然可以用前缀和表示，我们可以用前缀和优化程序的时间复杂度：我们用 $A(i)$ 表示 $a_i$ 的前缀和，用 $B(i)$ 表示 $b_i$ 的前缀和。</p><p>下面来推一波式子：<br>$$<br>\begin{aligned}<br>S(l,r)<br>&amp;&#x3D;\big[A(r)-A(l-1)\big] \times \big[B(r)-B(l-1)\big]\<br>  &amp;&#x3D;A(r) \times B(r)+A(l-1) \times B(l-1)-A(r) \times B(l-1)-A(l-1) \times B(r)<br>\end{aligned}<br>$$<br>所以：<br>$$<br>\begin{aligned}<br>\sum_{l&#x3D;1}^n\sum_{r&#x3D;l}^nS(l,r)<br>&amp;&#x3D;\sum_{l&#x3D;1}^n\sum_{r&#x3D;l}^n\big[A(r) \times B(r)+A(l-1) \times B(l-1)-A(r) \times B(l-1)-A(l-1) \times B(r)\big]\<br>&amp;&#x3D;\sum_{l&#x3D;1}^n\sum_{r&#x3D;l}^n\big[A(r) \times B(r)\big]+\sum_{l&#x3D;1}^n\sum_{r&#x3D;l}^n\big[A(l-1) \times B(l-1)\big]-\sum_{l&#x3D;1}^n\sum_{r&#x3D;l}^n\big[A(r) \times B(l-1)\big]-\sum_{l&#x3D;1}^n\sum_{r&#x3D;l}^n\big[A(l-1) \times B(r)\big]<br>\end{aligned}<br>$$<br>得到上面的公式后，我们来分析每一项，并用 $ans$ 来记录答案：</p><ul><li>对于 $\sum\limits_{l&#x3D;1}^n\sum\limits_{r&#x3D;l}^nA(r) \times B(r)$：我们用 $SAB(i)$ 表示 $A(r) \times B(r)$ 的前缀和，所以 $ans+&#x3D;\sum\limits_{l&#x3D;1}^n\big[SAB(n)-SAB(l-1)\big]$。</li><li>对于 $\sum\limits_{l&#x3D;1}^n\sum\limits_{r&#x3D;l}^nA(l-1) \times B(l-1)$：$ans+&#x3D;\sum\limits_{l&#x3D;1}^n\big[(n-l+1) \times A(l-1) \times B(l-1)\big]$。</li><li>对于 $\sum\limits_{l&#x3D;1}^n\sum\limits_{r&#x3D;l}^nA(r) \times B(l-1)$：我们用 $SA(i)$ 表示 $A(r)$ 的前缀和，所以 $ans-&#x3D;\sum\limits_{l&#x3D;1}^n\big{B(l-1) \times \big[SA(n)-SA(l-1)\big]\big}$。</li><li>对于 $\sum\limits_{l&#x3D;1}^n\sum\limits_{r&#x3D;l}^nA(l-1) \times B(r)$：我们用 $SB(i)$ 表示 $B(r)$ 的前缀和，所以 $ans-&#x3D;\sum\limits_{l&#x3D;1}^n\big{A(l-1) \times \big[SB(n)-SB(l-1)\big]\big}$。</li></ul><p>总时间复杂度为 $\Theta(n)$，可通过本题。</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ll long long</span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxn=<span class="hljs-number">5e5</span><span class="hljs-number">+5</span>,mod=<span class="hljs-number">1e9</span><span class="hljs-number">+7</span>;<br>ll n,a[maxn],b[maxn],A[maxn],B[maxn],SA[maxn],SB[maxn],SAB[maxn],ans;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>cin&gt;&gt;n;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) cin&gt;&gt;a[i],A[i]=(A[i<span class="hljs-number">-1</span>]+a[i])%mod;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) cin&gt;&gt;b[i],B[i]=(B[i<span class="hljs-number">-1</span>]+b[i])%mod;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) SA[i]=(SA[i<span class="hljs-number">-1</span>]+A[i])%mod,SB[i]=(SB[i<span class="hljs-number">-1</span>]+B[i])%mod,SAB[i]=(SAB[i<span class="hljs-number">-1</span>]+(A[i]*B[i])%mod)%mod;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) ans=(ans+((SAB[n]-SAB[i<span class="hljs-number">-1</span>])+mod)%mod)%mod;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) ans=(ans+(((n-i<span class="hljs-number">+1</span>)*A[i<span class="hljs-number">-1</span>])%mod*B[i<span class="hljs-number">-1</span>])%mod)%mod;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) ans=((ans-(B[i<span class="hljs-number">-1</span>]*((SA[n]-SA[i<span class="hljs-number">-1</span>]+mod)%mod))%mod)+mod)%mod;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) ans=((ans-(A[i<span class="hljs-number">-1</span>]*((SB[n]-SB[i<span class="hljs-number">-1</span>]+mod)%mod))%mod)+mod)%mod;<br>cout&lt;&lt;ans;<br>&#125;<br></code></pre></td></tr></table></figure><p>注意：</p><ul><li>十年 OI 一场空，不开<code>long long</code>见祖宗！</li><li>取模，有可能是负数的要先加<code>mod</code>再模<code>mod</code>。</li></ul><p>写了那么一大段 $\LaTeX$，累死我了，可能有点问题，欢迎在评论区提出！点个赞吧！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数学</tag>
+      
+      <tag>递推</tag>
+      
+      <tag>前缀和</tag>
+      
+      <tag>数论</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>题解：P1025 [NOIP2001 提高组] 数的划分</title>
+    <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1025%20%5BNOIP2001%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E6%95%B0%E7%9A%84%E5%88%92%E5%88%86/"/>
+    <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1025%20%5BNOIP2001%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E6%95%B0%E7%9A%84%E5%88%92%E5%88%86/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/8t3rqvj5">https://www.luogu.com.cn/article/8t3rqvj5</a> 点个赞吧！</strong></p><hr><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这不是 DFS 板子题吗？实在没什么好讲的……<del>还是讲讲吧。</del></p><p>使用递归的方法来尝试所有可能的划分。每次递归处理一个部分，将整数加入当前部分，然后递归处理下一个部分。</p><p>从最小的整数开始尝试，将其加入当前部分。继续递归处理，直到构建出 $k$ 个部分。</p><p>当所有 $k$ 个部分都被填满时，检查这些部分的整数和是否等于 $n$。如果是，将这种划分计入结果。</p><p>为了确保不同顺序的相同划分只被计数一次，规定每个部分中的整数必须不小于该部分之前的最小整数。这通过在递归调用中只尝试从当前整数开始及之后的整数来实现。</p><p>剩下的在代码里讲吧。</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> n,k,ans;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> p,<span class="hljs-type">int</span> s)</span></span>&#123;<span class="hljs-comment">//l:当前份中最小的整数，p:当前已经划分的份数，s:当前所有份数的整数和</span><br><span class="hljs-keyword">if</span>(p==k<span class="hljs-number">+1</span>)&#123;<span class="hljs-comment">//已经划分了 k 份</span><br><span class="hljs-keyword">if</span>(s==n) ans++;<span class="hljs-comment">//增加答案</span><br><span class="hljs-keyword">return</span>;<span class="hljs-comment">//返回</span><br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=l;s+i&lt;=n;i++) <span class="hljs-built_in">dfs</span>(i,p<span class="hljs-number">+1</span>,s+i);<span class="hljs-comment">//一定要从 l 开始，避免重复；s+i&lt;=n 是为了确保不会超过总和 n；递归，作用分别为：成为下一份的最小可能值、进入下一份的划分、更新当前所有份的总和</span><br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>cin&gt;&gt;n&gt;&gt;k,<span class="hljs-built_in">dfs</span>(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>),cout&lt;&lt;ans;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>动态规划 DP</tag>
+      
+      <tag>搜索</tag>
+      
+      <tag>递推</tag>
+      
+      <tag>剪枝</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>题解：P1022 [NOIP2000 普及组] 计算器的改良</title>
     <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1022%20%5BNOIP2000%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20%E8%AE%A1%E7%AE%97%E5%99%A8%E7%9A%84%E6%94%B9%E8%89%AF/"/>
     <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1022%20%5BNOIP2000%20%E6%99%AE%E5%8F%8A%E7%BB%84%5D%20%E8%AE%A1%E7%AE%97%E5%99%A8%E7%9A%84%E6%94%B9%E8%89%AF/</url>
@@ -20,11 +319,11 @@
     
     <tags>
       
-      <tag>数学</tag>
-      
       <tag>模拟</tag>
       
       <tag>字符串</tag>
+      
+      <tag>数学</tag>
       
     </tags>
     
@@ -120,9 +419,9 @@
     
     <tags>
       
-      <tag>动态规划 DP</tag>
-      
       <tag>数学</tag>
+      
+      <tag>动态规划 DP</tag>
       
       <tag>递推</tag>
       
@@ -182,9 +481,9 @@
     
     <tags>
       
-      <tag>数学</tag>
-      
       <tag>枚举</tag>
+      
+      <tag>数学</tag>
       
     </tags>
     
@@ -263,9 +562,9 @@
     
     <tags>
       
-      <tag>数学</tag>
-      
       <tag>模拟</tag>
+      
+      <tag>数学</tag>
       
     </tags>
     
