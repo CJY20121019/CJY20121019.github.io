@@ -19,25 +19,25 @@
   <meta name="author" content="__CJY__">
   <meta name="keywords" content="">
   
-    <meta name="description" content="感觉其他题解有点难懂，这里发一篇通俗的。 思路我们维护两个变量 $l,r$ 分别表示当前条带的左右端点，再维护一个数组 $t$ 表示翻折（即“对称轴”）的实际位置。 因为往右边翻可以保证 $l \ge 0,r \ge 0$，所以我们统一往右边翻。 我们考虑一个问题：对于对称轴 $s$ 折叠后，原来位置 $x$ 的点现在在哪里？  如果 $x \ge s$：还在原来的位置。 如果 $x&lt;s$：">
+    <meta name="description" content="思路每次 $p$ 就只有两种状态：  当 $p \ne 0$ 时。每次称重有 $3$ 种可能结果（左重、右重、平衡），可产生 $\log_3 3&#x3D;1$ 个三进制位的信息量，区分 $n$ 个不同情况需要 $\lceil \log_3 n \rceil$ 次称重。所以最少称量次数 $m$ 满足 $3^m \ge n$，即 $m &#x3D; \lceil \log_3 n \rceil$。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="题解：P6842 [BalkanOI 2009] Strip">
-<meta property="og:url" content="https://cjy20121019.github.io/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP6842%20%5BBalkanOI%202009%5D%20Strip/index.html">
+<meta property="og:title" content="题解：P1431 找出伪币">
+<meta property="og:url" content="https://cjy20121019.github.io/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1431%20%E6%89%BE%E5%87%BA%E4%BC%AA%E5%B8%81/index.html">
 <meta property="og:site_name" content="__CJY__&#39;s Blog">
-<meta property="og:description" content="感觉其他题解有点难懂，这里发一篇通俗的。 思路我们维护两个变量 $l,r$ 分别表示当前条带的左右端点，再维护一个数组 $t$ 表示翻折（即“对称轴”）的实际位置。 因为往右边翻可以保证 $l \ge 0,r \ge 0$，所以我们统一往右边翻。 我们考虑一个问题：对于对称轴 $s$ 折叠后，原来位置 $x$ 的点现在在哪里？  如果 $x \ge s$：还在原来的位置。 如果 $x&lt;s$：">
+<meta property="og:description" content="思路每次 $p$ 就只有两种状态：  当 $p \ne 0$ 时。每次称重有 $3$ 种可能结果（左重、右重、平衡），可产生 $\log_3 3&#x3D;1$ 个三进制位的信息量，区分 $n$ 个不同情况需要 $\lceil \log_3 n \rceil$ 次称重。所以最少称量次数 $m$ 满足 $3^m \ge n$，即 $m &#x3D; \lceil \log_3 n \rceil$。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-16T08:22:25.000Z">
-<meta property="article:modified_time" content="2026-02-16T08:26:20.982Z">
+<meta property="article:published_time" content="2026-02-16T08:34:13.000Z">
+<meta property="article:modified_time" content="2026-02-16T08:36:37.330Z">
 <meta property="article:author" content="__CJY__">
 <meta property="article:tag" content="数学">
-<meta property="article:tag" content="模拟">
+<meta property="article:tag" content="高精度">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>题解：P6842 [BalkanOI 2009] Strip - __CJY__&#39;s Blog</title>
+  <title>题解：P1431 找出伪币 - __CJY__&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -218,7 +218,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="题解：P6842 [BalkanOI 2009] Strip"></span>
+            <span id="subtitle" data-typed-text="题解：P1431 找出伪币"></span>
           
         </div>
 
@@ -229,7 +229,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-16 16:22" pubdate>
+        <time datetime="2026-02-16 16:34" pubdate>
           2026年2月16日 下午
         </time>
       </span>
@@ -241,7 +241,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          546 字
+          729 字
         
       </span>
     
@@ -252,7 +252,7 @@
         
         
         
-          5 分钟
+          7 分钟
         
       </span>
     
@@ -298,12 +298,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">题解：P6842 [BalkanOI 2009] Strip</h1>
+            <h1 id="seo-header">题解：P1431 找出伪币</h1>
             
               <p id="updated-time" class="note note-warning" style="display: none">
                 
                   
-                    本文最后更新于 2026-02-16T16:26:20+08:00
+                    本文最后更新于 2026-02-16T16:36:37+08:00
                   
                   
 
@@ -313,25 +313,14 @@
             
               <div class="markdown-body">
                 
-                <p>感觉其他题解有点难懂，这里发一篇通俗的。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我们维护两个变量 $l,r$ 分别表示当前条带的左右端点，再维护一个数组 $t$ 表示<strong>翻折（即“对称轴”）的实际位置</strong>。</p>
-<p>因为往右边翻可以保证 $l \ge 0,r \ge 0$，所以我们<strong>统一往右边翻</strong>。</p>
-<p>我们考虑一个问题：对于对称轴 $s$ 折叠后，原来位置 $x$ 的点现在在哪里？</p>
+                <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>每次 $p$ 就只有两种状态：</p>
 <ul>
-<li>如果 $x \ge s$：还在原来的位置。</li>
-<li>如果 $x&lt;s$：被翻到右边，新位置为 $2s-x$。</li>
+<li>当 $p \ne 0$ 时。每次称重有 $3$ 种可能结果（左重、右重、平衡），可产生 $\log_3 3&#x3D;1$ 个三进制位的信息量，区分 $n$ 个不同情况需要 $\lceil \log_3 n \rceil$ 次称重。所以最少称量次数 $m$ 满足 $3^m \ge n$，即 $m &#x3D; \lceil \log_3 n \rceil$。</li>
+<li>当 $p&#x3D;0$ 时。这个时候我们不仅需要定位伪币，还需确定其轻重，每个硬币有 $2$ 种可能性（可能轻或重），总可能性为 $2n$ 种，最少需要区分 $2n+3$ 种情况。证明的话可以去看其他题解，这里不再赘述。所以最少称量次数 $m$ 满足 $3^m \ge 2n + 3$，即 $m&#x3D;\lceil \log_3 (2n+3) \rceil$。</li>
 </ul>
-<p>我们设每次读进来的“对称轴”为 $a$。但由于经过了翻折，$a$ 对应的是原条带的下标，而我们要的是当前的实际下标。所以我们要求出，经过前 $i-1$ 次折叠后，原始位置 $a$ 在当前条带中的实际位置是多少？</p>
-<p>设 $f(x)$ 表示原始位置 $x$ 经过所有折叠后的实际位置。对于第 $j$ 次折叠在位置 $t_j$：</p>
-<ul>
-<li>如果 $f(x) \ge t_j$：保持不变。</li>
-<li>如果 $f(x)&lt;t_j$：那么 $f(x)&#x3D;2 \times t_j-f(x)$。</li>
-</ul>
-<p>由此我们可以得到 $a$ 每次操作得到的实际位置是 $a&#x3D;\max(a,2 \times t_j-a)$，需要进行 $i-1$ 次翻折操作才能求出 $a$ 的实际位置。</p>
-<p>我们知道了“对称轴”的位置，就可以求出 $l,r$ 的值啦！$r$ 的位置变成了 $r$ 和 $l$ 的对称点的最大值（因为翻折后 $r$ 有可能会超过原来右端点的位置，也有可能不超过，所以取最大值），$l$ 的位置变成了 $a$ 的位置，我们根据上面的公式可得出 $r&#x3D;\max(r,2a-l),l&#x3D;a$。</p>
-<p><strong>注意不能交换操作顺序，必须先更新 $r$ 再更新 $l$，因为 $r$ 的计算需要旧的 $l$ 值。否则只有 $28$ 分……。</strong></p>
-<p>由于题目中的长度定义为<strong>两端点之间的距离</strong>，而我们的 $l,r$ 是条带的左右端点位置，因此输出 $r-l$ 即可得到正确的条带长度，不要输出 $r-l+1$。</p>
-<p>代码和楼上楼下差不多，就不贴了。</p>
+<p>然而，这道题目的关键点在于高精度，普通高精被卡，只能用压位高精……我写的是 $18$ 位压位存储，时间复杂度 $\Theta(\frac{Tk^2}{18^2})&#x3D;\Theta(\frac{Tk^2}{324})$。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> BASE=<span class="hljs-number">1e18</span>;<span class="hljs-comment">//定义大数的基数为 1e18（每位存储 18 位十进制数）</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> BASE_DIGITS=<span class="hljs-number">18</span>;<br>vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt;<span class="hljs-built_in">sto</span>(string s)&#123;<span class="hljs-comment">//字符串转大数（按 18 位分割存储）</span><br>	vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt;res;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=s.<span class="hljs-built_in">size</span>();i&gt;<span class="hljs-number">0</span>;i-=BASE_DIGITS)&#123;<span class="hljs-comment">//从字符串末尾开始，每次处理 18 位</span><br>		<span class="hljs-type">int</span> start=<span class="hljs-built_in">max</span>(<span class="hljs-number">0</span>,i-BASE_DIGITS);<span class="hljs-comment">//计算当前段的起始位置</span><br>		string part=s.<span class="hljs-built_in">substr</span>(start,i-start);<span class="hljs-comment">//截取 18 位字符串</span><br>		res.<span class="hljs-built_in">push_back</span>(<span class="hljs-built_in">stoll</span>(part));<span class="hljs-comment">//转换为 long long 并存入 vector</span><br>	&#125;<br>	<span class="hljs-keyword">return</span> res;<br>&#125;<br>vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt;<span class="hljs-built_in">mul</span>(vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt;a,<span class="hljs-type">int</span> b)&#123;<span class="hljs-comment">//大数乘法</span><br>	vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt;res;<br>	<span class="hljs-type">long</span> <span class="hljs-type">long</span> c=<span class="hljs-number">0</span>;<span class="hljs-comment">//进位</span><br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">long</span> <span class="hljs-type">long</span> x:a)&#123;<span class="hljs-comment">//逐位相乘</span><br>		<span class="hljs-type">long</span> <span class="hljs-type">long</span> p=x*b+c;<span class="hljs-comment">//当前位乘积+进位</span><br>		res.<span class="hljs-built_in">push_back</span>(p%BASE),c=p/BASE;<span class="hljs-comment">//取模得到当前位并计算新的进位</span><br>	&#125;<br>	<span class="hljs-keyword">while</span>(c) res.<span class="hljs-built_in">push_back</span>(c%BASE),c/=BASE;<span class="hljs-comment">//处理剩余进位</span><br>	<span class="hljs-keyword">return</span> res;<br>&#125;<br>vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt;<span class="hljs-built_in">add</span>(vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt; a,vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt; b)&#123;<span class="hljs-comment">//大数加法</span><br>	vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt;res;<br>	<span class="hljs-type">long</span> <span class="hljs-type">long</span> c=<span class="hljs-number">0</span>;<span class="hljs-comment">//进位</span><br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-built_in">max</span>(a.<span class="hljs-built_in">size</span>(),b.<span class="hljs-built_in">size</span>())||c;i++)&#123;<span class="hljs-comment">//逐位相加（处理不等长情况）</span><br>		<span class="hljs-type">long</span> <span class="hljs-type">long</span> sum=c;<br>		<span class="hljs-keyword">if</span>(i&lt;a.<span class="hljs-built_in">size</span>()) sum+=a[i];<br>		<span class="hljs-keyword">if</span>(i&lt;b.<span class="hljs-built_in">size</span>()) sum+=b[i];<br>		res.<span class="hljs-built_in">push_back</span>(sum%BASE),c=sum/BASE;<span class="hljs-comment">//取模得到当前位并计算新的进位</span><br>	&#125;<br>	<span class="hljs-keyword">return</span> res;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt;a,vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt;b)</span></span>&#123;<span class="hljs-comment">//大数比较</span><br>	<span class="hljs-keyword">if</span>(a.<span class="hljs-built_in">size</span>()!=b.<span class="hljs-built_in">size</span>()) <span class="hljs-keyword">return</span> a.<span class="hljs-built_in">size</span>()&gt;b.<span class="hljs-built_in">size</span>();<span class="hljs-comment">//先比较位数</span><br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=a.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;i&gt;=<span class="hljs-number">0</span>;i--)&#123;<span class="hljs-comment">//从高位到低位逐位比较</span><br>		<span class="hljs-keyword">if</span>(a[i]!=b[i]) <span class="hljs-keyword">return</span> a[i]&gt;b[i];<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">solve</span><span class="hljs-params">(string s,<span class="hljs-type">bool</span> f)</span></span>&#123;<br>	vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt;t=<span class="hljs-built_in">sto</span>(s);<br>	<span class="hljs-keyword">if</span>(f)&#123;<span class="hljs-comment">//如果需要特殊计算</span><br>		t=<span class="hljs-built_in">mul</span>(t,<span class="hljs-number">2</span>);<br>		vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt;k=&#123;<span class="hljs-number">3</span>&#125;;<br>		t=<span class="hljs-built_in">add</span>(t,k);<br>	&#125;<br>	vector&lt;<span class="hljs-type">long</span> <span class="hljs-type">long</span>&gt;a=&#123;<span class="hljs-number">1</span>&#125;;<br>	<span class="hljs-type">int</span> m=<span class="hljs-number">0</span>;<span class="hljs-comment">//幂次计数</span><br>	<span class="hljs-keyword">while</span>(!<span class="hljs-built_in">cmp</span>(a,t)) a=<span class="hljs-built_in">mul</span>(a,<span class="hljs-number">3</span>),m++;<span class="hljs-comment">//不断乘 3 直到大于等于目标值</span><br>	<span class="hljs-keyword">return</span> m;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-number">0</span>),cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>	<span class="hljs-type">int</span> T;cin&gt;&gt;T;<br>	<span class="hljs-keyword">while</span>(T--)&#123;<br>		<span class="hljs-type">int</span> k,p;string n;cin&gt;&gt;k&gt;&gt;p&gt;&gt;n;<br>		<span class="hljs-type">bool</span> f=(p==<span class="hljs-number">0</span>);<span class="hljs-comment">//特判</span><br>		cout&lt;&lt;<span class="hljs-built_in">solve</span>(n,f)&lt;&lt;<span class="hljs-string">&#x27;\n&#x27;</span>;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>有问题请指出！</p>
 
                 
               </div>
@@ -367,7 +356,7 @@
       
         <a href="/tags/%E6%95%B0%E5%AD%A6/" class="print-no-link">#数学</a>
       
-        <a href="/tags/%E6%A8%A1%E6%8B%9F/" class="print-no-link">#模拟</a>
+        <a href="/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/" class="print-no-link">#高精度</a>
       
     </div>
   
@@ -379,8 +368,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>题解：P6842 [BalkanOI 2009] Strip</div>
-      <div>https://cjy20121019.github.io/2026/02/16/题解：P6842 [BalkanOI 2009] Strip/</div>
+      <div>题解：P1431 找出伪币</div>
+      <div>https://cjy20121019.github.io/2026/02/16/题解：P1431 找出伪币/</div>
     </div>
     <div class="license-meta">
       
@@ -417,9 +406,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1431%20%E6%89%BE%E5%87%BA%E4%BC%AA%E5%B8%81/" title="题解：P1431 找出伪币">
+                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP12605%20%E6%B1%82%E5%92%8C/" title="题解：P12605 求和">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">题解：P1431 找出伪币</span>
+                        <span class="hidden-mobile">题解：P12605 求和</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -427,8 +416,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/02/16/CSP-JS%202025%20%E6%B8%B8%E8%AE%B0/" title="CSP-J/S 2025 游记">
-                        <span class="hidden-mobile">CSP-J/S 2025 游记</span>
+                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP6842%20%5BBalkanOI%202009%5D%20Strip/" title="题解：P6842 [BalkanOI 2009] Strip">
+                        <span class="hidden-mobile">题解：P6842 [BalkanOI 2009] Strip</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
