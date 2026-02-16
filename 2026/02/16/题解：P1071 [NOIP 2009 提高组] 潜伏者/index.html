@@ -19,23 +19,25 @@
   <meta name="author" content="__CJY__">
   <meta name="keywords" content="">
   
-    <meta name="description" content="This is an excellent blog!">
+    <meta name="description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;jftnkm89 点个赞吧！  不知道为什么大家的做法都那么复杂，只有一篇题解和我思路差不多。 思路这就是个模拟题。我们设读入的三行字符串分别为 $a,b,c$。 一看到题目，就知道可以用 map 解题。先设一个 map&lt;char,char&gt;mp;，用于整理“密码本”；再设一个 map&lt;char,bool&amp;g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="潜伏者">
+<meta property="og:title" content="题解：P1071 [NOIP 2009 提高组] 潜伏者">
 <meta property="og:url" content="https://cjy20121019.github.io/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1071%20%5BNOIP%202009%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E6%BD%9C%E4%BC%8F%E8%80%85/index.html">
 <meta property="og:site_name" content="__CJY__&#39;s Blog">
-<meta property="og:description" content="This is an excellent blog!">
+<meta property="og:description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;jftnkm89 点个赞吧！  不知道为什么大家的做法都那么复杂，只有一篇题解和我思路差不多。 思路这就是个模拟题。我们设读入的三行字符串分别为 $a,b,c$。 一看到题目，就知道可以用 map 解题。先设一个 map&lt;char,char&gt;mp;，用于整理“密码本”；再设一个 map&lt;char,bool&amp;g">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-16T09:49:41.000Z">
-<meta property="article:modified_time" content="2026-02-16T09:50:07.865Z">
+<meta property="article:published_time" content="2026-02-16T09:50:19.000Z">
+<meta property="article:modified_time" content="2026-02-16T09:57:44.160Z">
 <meta property="article:author" content="__CJY__">
+<meta property="article:tag" content="字符串">
+<meta property="article:tag" content="模拟">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>潜伏者 - __CJY__&#39;s Blog</title>
+  <title>题解：P1071 [NOIP 2009 提高组] 潜伏者 - __CJY__&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -216,7 +218,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="潜伏者"></span>
+            <span id="subtitle" data-typed-text="题解：P1071 [NOIP 2009 提高组] 潜伏者"></span>
           
         </div>
 
@@ -227,7 +229,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-16 17:49" pubdate>
+        <time datetime="2026-02-16 17:50" pubdate>
           2026年2月16日 下午
         </time>
       </span>
@@ -239,7 +241,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          309 字
         
       </span>
     
@@ -250,7 +252,7 @@
         
         
         
-          1 分钟
+          3 分钟
         
       </span>
     
@@ -296,12 +298,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">潜伏者</h1>
+            <h1 id="seo-header">题解：P1071 [NOIP 2009 提高组] 潜伏者</h1>
             
               <p id="updated-time" class="note note-warning" style="display: none">
                 
                   
-                    本文最后更新于 2026-02-16T17:50:07+08:00
+                    本文最后更新于 2026-02-16T17:57:44+08:00
                   
                   
 
@@ -311,7 +313,15 @@
             
               <div class="markdown-body">
                 
-                
+                <p><strong>原文：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/jftnkm89">https://www.luogu.com.cn/article/jftnkm89</a> 点个赞吧！</strong></p>
+<hr>
+<p>不知道为什么大家的做法都那么复杂，只有<a href="/article/vjhqsomd">一篇题解</a>和我思路差不多。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这就是个模拟题。我们设读入的三行字符串分别为 $a,b,c$。</p>
+<p>一看到题目，就知道可以用 <code>map</code> 解题。先设一个 <code>map&lt;char,char&gt;mp;</code>，用于整理“密码本”；再设一个 <code>map&lt;char,bool&gt;vis;</code>，用于记录哪个字符已经在“密码本”里了。</p>
+<p>首先遍历 $a$：如果 $vis_{b_i}&#x3D;1 \land b_i \ne mp_{a_i}$，直接输出 <code>Failed</code> 并结束程序；否则，$mp_{a_i} \gets b_i,vis_{b_i} \gets 1$。</p>
+<p>然后遍历 $\tt A \sim Z$，如果 $vis_i&#x3D;0$，输出 <code>Failed</code> 并结束程序。</p>
+<p>最后根据“密码本”翻译 $c$ 中的内容并输出。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br>string a,b,c;<br>map&lt;<span class="hljs-type">char</span>,<span class="hljs-type">char</span>&gt;mp;map&lt;<span class="hljs-type">char</span>,<span class="hljs-type">bool</span>&gt;vis;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;a.<span class="hljs-built_in">size</span>();i++)&#123;<br>		<span class="hljs-keyword">if</span>(vis[b[i]]&amp;&amp;b[i]!=mp[a[i]])&#123;cout&lt;&lt;<span class="hljs-string">&quot;Failed\n&quot;</span>;<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;&#125;<br>		mp[a[i]]=b[i],vis[b[i]]=<span class="hljs-number">1</span>;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">char</span> i=<span class="hljs-string">&#x27;A&#x27;</span>;i&lt;=<span class="hljs-string">&#x27;Z&#x27;</span>;i++)&#123;<br>		<span class="hljs-keyword">if</span>(!vis[i])&#123;cout&lt;&lt;<span class="hljs-string">&quot;Failed\n&quot;</span>;<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;&#125;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;c.<span class="hljs-built_in">size</span>();i++) cout&lt;&lt;mp[c[i]];<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -319,6 +329,36 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%A8%A1%E6%8B%9F/" class="print-no-link">#模拟</a>
+      
+        <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="print-no-link">#字符串</a>
+      
+    </div>
   
 </div>
 
@@ -328,7 +368,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>潜伏者</div>
+      <div>题解：P1071 [NOIP 2009 提高组] 潜伏者</div>
       <div>https://cjy20121019.github.io/2026/02/16/题解：P1071 [NOIP 2009 提高组] 潜伏者/</div>
     </div>
     <div class="license-meta">
@@ -366,9 +406,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/02/16/%E6%BD%9C%E4%BC%8F%E8%80%85/" title="题解：P1071 [NOIP 2009 提高组] 潜伏者">
+                      <a href="/2026/02/16/DeepSeek%20%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/" title="DeepSeek 本地部署指南">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">题解：P1071 [NOIP 2009 提高组] 潜伏者</span>
+                        <span class="hidden-mobile">DeepSeek 本地部署指南</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     

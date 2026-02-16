@@ -19,24 +19,29 @@
   <meta name="author" content="__CJY__">
   <meta name="keywords" content="">
   
-    <meta name="description" content="This is an excellent blog!">
+    <meta name="description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;i1kejuse 点个赞吧！  前言话说最近 DeepSeek 太火了，而且受到了攻击，所以官网卡得要命！ 所以我们可以在本地部署和运行 DeepSeek，实现 AI 对话的功能。 安装在 ollama 官网 上下载自己系统的版本。 下载完后，重回 ollama 官网，搜索 deepseek-r1，点第一个，然后选择适合自己电">
 <meta property="og:type" content="article">
-<meta property="og:title" content="题解：P1071 [NOIP 2009 提高组] 潜伏者">
-<meta property="og:url" content="https://cjy20121019.github.io/2026/02/16/%E6%BD%9C%E4%BC%8F%E8%80%85/index.html">
+<meta property="og:title" content="DeepSeek 本地部署指南">
+<meta property="og:url" content="https://cjy20121019.github.io/2026/02/16/DeepSeek%20%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="__CJY__&#39;s Blog">
-<meta property="og:description" content="This is an excellent blog!">
+<meta property="og:description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;i1kejuse 点个赞吧！  前言话说最近 DeepSeek 太火了，而且受到了攻击，所以官网卡得要命！ 所以我们可以在本地部署和运行 DeepSeek，实现 AI 对话的功能。 安装在 ollama 官网 上下载自己系统的版本。 下载完后，重回 ollama 官网，搜索 deepseek-r1，点第一个，然后选择适合自己电">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-16T09:50:19.000Z">
-<meta property="article:modified_time" content="2026-02-16T09:52:24.422Z">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/c0t9xv6s.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/w1xjpp48.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/426uwjdk.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/r8lzxdz5.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/tdbcgg7a.png">
+<meta property="article:published_time" content="2026-02-16T09:59:45.000Z">
+<meta property="article:modified_time" content="2026-02-16T10:02:09.601Z">
 <meta property="article:author" content="__CJY__">
-<meta property="article:tag" content="模拟，字符串">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/c0t9xv6s.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>题解：P1071 [NOIP 2009 提高组] 潜伏者 - __CJY__&#39;s Blog</title>
+  <title>DeepSeek 本地部署指南 - __CJY__&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -217,7 +222,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="题解：P1071 [NOIP 2009 提高组] 潜伏者"></span>
+            <span id="subtitle" data-typed-text="DeepSeek 本地部署指南"></span>
           
         </div>
 
@@ -228,7 +233,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-16 17:50" pubdate>
+        <time datetime="2026-02-16 17:59" pubdate>
           2026年2月16日 下午
         </time>
       </span>
@@ -240,7 +245,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          276 字
         
       </span>
     
@@ -251,7 +256,7 @@
         
         
         
-          1 分钟
+          3 分钟
         
       </span>
     
@@ -297,12 +302,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">题解：P1071 [NOIP 2009 提高组] 潜伏者</h1>
+            <h1 id="seo-header">DeepSeek 本地部署指南</h1>
             
               <p id="updated-time" class="note note-warning" style="display: none">
                 
                   
-                    本文最后更新于 2026-02-16T17:52:24+08:00
+                    本文最后更新于 2026-02-16T18:02:09+08:00
                   
                   
 
@@ -312,7 +317,20 @@
             
               <div class="markdown-body">
                 
-                
+                <p><strong>原文：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/i1kejuse">https://www.luogu.com.cn/article/i1kejuse</a> 点个赞吧！</strong></p>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>话说最近 DeepSeek 太火了，而且受到了攻击，所以<a target="_blank" rel="noopener" href="https://www.deepseek.com/">官网</a>卡得要命！</p>
+<p>所以我们可以在本地部署和运行 DeepSeek，实现 AI 对话的功能。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在 <a target="_blank" rel="noopener" href="https://ollama.com/">ollama 官网</a> 上下载自己系统的版本。</p>
+<p>下载完后，重回 <a target="_blank" rel="noopener" href="https://ollama.com/">ollama 官网</a>，搜索 <code>deepseek-r1</code>，点第一个，然后选择适合自己电脑配置的选项，这里推荐 <code>7b</code> 的。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/c0t9xv6s.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload><br>然后在终端或者 <code>powershell</code> 里输入指令：</p>
+<blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">&gt;ollama run deepseek<span class="hljs-literal">-r1</span>:<span class="hljs-number">7</span>b<br></code></pre></td></tr></table></figure><p>其中 <code>7b</code> 可替换为自己之前选择的选项。</p>
+</blockquote>
+<p>请<strong>耐心</strong>等进度条跑完，这可能会消耗<del>几年</del><strong>几小时</strong>的时间。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/w1xjpp48.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload></p>
+<p>按下回车，就可以对话了！它使用的格式是 Markdown。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/426uwjdk.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload><br>下面还有好多，就不贴了。</p>
+<p>为了方便对话，我们可以下载一个 Chatbox，<a target="_blank" rel="noopener" href="https://chatboxai.app/zh">官网点这里</a>。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/r8lzxdz5.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload><br>下载完后打开，点击左下角的<code>设置</code>按钮，按照上述步骤修改，其余不变。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/tdbcgg7a.png" srcset="https://cdn.luogu.com.cn/upload/image_hosting/kbnvy5w6.png" lazyload><br>  现在就可以交流了！<strong>如果不行的话请重启 Chatbox 再试试！</strong></p>
+<p><strong>求赞！求关注，必回关！</strong></p>
+
                 
               </div>
             
@@ -320,13 +338,27 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E6%A8%A1%E6%8B%9F%EF%BC%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="print-no-link">#模拟，字符串</a>
-      
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%A7%91%E6%8A%80%C2%B7%E5%B7%A5%E7%A8%8B/" class="category-chain-item">科技·工程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
     </div>
+  
   
 </div>
 
@@ -336,8 +368,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>题解：P1071 [NOIP 2009 提高组] 潜伏者</div>
-      <div>https://cjy20121019.github.io/2026/02/16/潜伏者/</div>
+      <div>DeepSeek 本地部署指南</div>
+      <div>https://cjy20121019.github.io/2026/02/16/DeepSeek 本地部署指南/</div>
     </div>
     <div class="license-meta">
       
@@ -378,8 +410,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1071%20%5BNOIP%202009%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E6%BD%9C%E4%BC%8F%E8%80%85/" title="潜伏者">
-                        <span class="hidden-mobile">潜伏者</span>
+                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9AP1071%20%5BNOIP%202009%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E6%BD%9C%E4%BC%8F%E8%80%85/" title="题解：P1071 [NOIP 2009 提高组] 潜伏者">
+                        <span class="hidden-mobile">题解：P1071 [NOIP 2009 提高组] 潜伏者</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
