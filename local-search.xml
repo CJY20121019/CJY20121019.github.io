@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>题解：P10411 「QFOI R2」树色尤含残雨</title>
+    <link href="/2026/03/03/%E9%A2%98%E8%A7%A3%EF%BC%9AP10411%20%E3%80%8CQFOI%20R2%E3%80%8D%E6%A0%91%E8%89%B2%E5%B0%A4%E5%90%AB%E6%AE%8B%E9%9B%A8/"/>
+    <url>/2026/03/03/%E9%A2%98%E8%A7%A3%EF%BC%9AP10411%20%E3%80%8CQFOI%20R2%E3%80%8D%E6%A0%91%E8%89%B2%E5%B0%A4%E5%90%AB%E6%AE%8B%E9%9B%A8/</url>
+    
+    <content type="html"><![CDATA[<p><strong>原文：<a href="https://www.luogu.com.cn/article/qnvz69gh">https://www.luogu.com.cn/article/qnvz69gh</a> 点个赞吧！</strong></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>显然，我们先要对 $x$ 质因数分解，分解为 $x&#x3D;p_1^{\alpha_1}\times p_2^{\alpha_2}\times p_3^{\alpha_3}\times \cdots \times p_k^{\alpha_k}$ 的形式，即 $x&#x3D;\prod_{i&#x3D;1}^k p_i^{\alpha_i}$。由于唯一分解定理，分解出来的形式是唯一的。</p><p>接下来开始分类讨论：</p><ul><li>若 $k&lt;2$，即 $x$ 为质数，无法分解，直接输出 $x$。</li><li>否则：<ul><li>若 $\forall 1 \le i \le k,\alpha_i&#x3D;1$，即所有质因数的指数都为 $1$:<ul><li>若 $2 \mid k$，我们可以两两相消，最后只剩下 $1$。举个例子：若 $x&#x3D;2 \times 3 \times 5 \times 11$。那么我们第一次可以消掉 $2$ 和 $3$，$x&#x3D;5 \times 11$；第二次消掉 $5$ 和 $11$，$x&#x3D;1$。直接输出 $1$ 即可。</li><li>否则，无法消掉所有因子，按照最优策略，应该留下最小的质因子。举个例子：若 $x&#x3D;2 \times 7 \times 13$。第一次可以消掉 $7$ 和 $13$，$x&#x3D;2$；第二次无法继续消了，只留下 $2$。应该输出最小质因子。</li></ul></li><li>否则，即其中<strong>至少包含一个</strong>指数超过 $1$：<ul><li>若 $2 \mid k$，依旧留下 $1$。举个例子：若 $x&#x3D;2 \times 3^2 \times 5^3 \times 11^2$。那么我们第一次可以消掉 $2$ 和 $3^2$，$x&#x3D;5^3 \times 11^2$；第二次消掉 $5^3$ 和 $11^2$，$x&#x3D;1$。直接输出 $1$ 即可。</li><li>否则，答案也为 1。举个例子：若 $x&#x3D;3^2 \times 7^2 \times 11^5$。第一次可以先消掉 $3^2$ 和 $7^2$，$x&#x3D;11^5$；第二次我们将 $11^5$ 分为 $11^2 \times 11^3$，分别将他们俩消掉，则 $x&#x3D;1$。输出 $1$ 即可。</li></ul></li></ul></li></ul><p>综上所述：</p><ul><li>当 $k&lt;2$ 时，答案为 $x$。</li><li>当 $\forall 1 \le i \le k,\alpha_i&#x3D;1$ 且 $2 \nmid k$ 时，答案为 $\min_{i&#x3D;1}^k p_i$。</li><li>否则，答案为 $1$。</li></ul><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br>vector&lt;<span class="hljs-type">int</span>&gt;p;<br><span class="hljs-type">int</span> x,k,mi=INT_MAX;<br><span class="hljs-type">bool</span> f=<span class="hljs-number">1</span>;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">2</span>;i*i&lt;=x;i++)&#123;<br><span class="hljs-keyword">if</span>(x%i) <span class="hljs-keyword">continue</span>;<br><span class="hljs-type">int</span> c=<span class="hljs-number">0</span>;<br><span class="hljs-keyword">while</span>(x%i==<span class="hljs-number">0</span>) c++,x/=i;<br>p.<span class="hljs-built_in">push_back</span>(i),mi=<span class="hljs-built_in">min</span>(mi,i);<br><span class="hljs-keyword">if</span>(c&gt;<span class="hljs-number">1</span>) f=<span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-keyword">if</span>(x&gt;<span class="hljs-number">1</span>) p.<span class="hljs-built_in">push_back</span>(x);<span class="hljs-comment">//特判，可能没分解完</span><br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>cin&gt;&gt;x,<span class="hljs-built_in">init</span>(x),k=p.<span class="hljs-built_in">size</span>();<br><span class="hljs-keyword">if</span>(k&lt;<span class="hljs-number">2</span>) cout&lt;&lt;x;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(f&amp;&amp;k%<span class="hljs-number">2</span>) cout&lt;&lt;mi;<br><span class="hljs-keyword">else</span> cout&lt;&lt;<span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>贪心</tag>
+      
+      <tag>数学</tag>
+      
+      <tag>数论</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>题解：CF393B Three matrices</title>
     <link href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9ACF393B%20Three%20matrices/"/>
     <url>/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9ACF393B%20Three%20matrices/</url>
@@ -232,11 +261,11 @@
       
       <tag>数学</tag>
       
+      <tag>数论</tag>
+      
       <tag>递推</tag>
       
       <tag>前缀和</tag>
-      
-      <tag>数论</tag>
       
     </tags>
     

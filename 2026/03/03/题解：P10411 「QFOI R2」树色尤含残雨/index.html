@@ -19,24 +19,26 @@
   <meta name="author" content="__CJY__">
   <meta name="keywords" content="">
   
-    <meta name="description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;xyoaxhpt 点个赞吧！  这是一道简单的模拟题 思路 我们先把 $W$ 矩阵读入进来。 然后根据题意，对 $W,A,B$ 数组进行模拟。由：   $ A_{i,j}&#x3D;A_{j,i} $  $ B_{i,j}&#x3D;-B_{j,i} $  $ W_{i,j}&#x3D;A_{i,j}+B_{i,j} $">
+    <meta name="description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;qnvz69gh 点个赞吧！ 思路显然，我们先要对 $x$ 质因数分解，分解为 $x&#x3D;p_1^{\alpha_1}\times p_2^{\alpha_2}\times p_3^{\alpha_3}\times \cdots \times p_k^{\alpha_k}$ 的形式，即 $x&#x3D;\prod_{i&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="题解：CF393B Three matrices">
-<meta property="og:url" content="https://cjy20121019.github.io/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9ACF393B%20Three%20matrices/index.html">
+<meta property="og:title" content="题解：P10411 「QFOI R2」树色尤含残雨">
+<meta property="og:url" content="https://cjy20121019.github.io/2026/03/03/%E9%A2%98%E8%A7%A3%EF%BC%9AP10411%20%E3%80%8CQFOI%20R2%E3%80%8D%E6%A0%91%E8%89%B2%E5%B0%A4%E5%90%AB%E6%AE%8B%E9%9B%A8/index.html">
 <meta property="og:site_name" content="__CJY__&#39;s Blog">
-<meta property="og:description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;xyoaxhpt 点个赞吧！  这是一道简单的模拟题 思路 我们先把 $W$ 矩阵读入进来。 然后根据题意，对 $W,A,B$ 数组进行模拟。由：   $ A_{i,j}&#x3D;A_{j,i} $  $ B_{i,j}&#x3D;-B_{j,i} $  $ W_{i,j}&#x3D;A_{i,j}+B_{i,j} $">
+<meta property="og:description" content="原文：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;article&#x2F;qnvz69gh 点个赞吧！ 思路显然，我们先要对 $x$ 质因数分解，分解为 $x&#x3D;p_1^{\alpha_1}\times p_2^{\alpha_2}\times p_3^{\alpha_3}\times \cdots \times p_k^{\alpha_k}$ 的形式，即 $x&#x3D;\prod_{i&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-16T10:29:03.000Z">
-<meta property="article:modified_time" content="2026-02-16T10:30:04.488Z">
+<meta property="article:published_time" content="2026-03-03T08:58:28.000Z">
+<meta property="article:modified_time" content="2026-03-03T09:00:37.081Z">
 <meta property="article:author" content="__CJY__">
-<meta property="article:tag" content="模拟">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="数论">
+<meta property="article:tag" content="贪心">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>题解：CF393B Three matrices - __CJY__&#39;s Blog</title>
+  <title>题解：P10411 「QFOI R2」树色尤含残雨 - __CJY__&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -217,7 +219,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="题解：CF393B Three matrices"></span>
+            <span id="subtitle" data-typed-text="题解：P10411 「QFOI R2」树色尤含残雨"></span>
           
         </div>
 
@@ -228,8 +230,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-16 18:29" pubdate>
-          2026年2月16日 晚上
+        <time datetime="2026-03-03 16:58" pubdate>
+          2026年3月3日 下午
         </time>
       </span>
     
@@ -240,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          274 字
+          550 字
         
       </span>
     
@@ -251,7 +253,7 @@
         
         
         
-          3 分钟
+          5 分钟
         
       </span>
     
@@ -297,12 +299,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">题解：CF393B Three matrices</h1>
+            <h1 id="seo-header">题解：P10411 「QFOI R2」树色尤含残雨</h1>
             
               <p id="updated-time" class="note note-warning" style="display: none">
                 
                   
-                    本文最后更新于 2026-02-16T18:30:04+08:00
+                    本文最后更新于 2026-03-03T17:00:37+08:00
                   
                   
 
@@ -312,34 +314,32 @@
             
               <div class="markdown-body">
                 
-                <p><strong>原文：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/xyoaxhpt">https://www.luogu.com.cn/article/xyoaxhpt</a> 点个赞吧！</strong></p>
-<hr>
-<p><strong>这是一道简单的模拟题</strong></p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
-<li>我们先把 $W$ 矩阵读入进来。</li>
-<li>然后根据题意，对 $W,A,B$ 数组进行模拟。由：</li>
-</ol>
+                <p><strong>原文：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/article/qnvz69gh">https://www.luogu.com.cn/article/qnvz69gh</a> 点个赞吧！</strong></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>显然，我们先要对 $x$ 质因数分解，分解为 $x&#x3D;p_1^{\alpha_1}\times p_2^{\alpha_2}\times p_3^{\alpha_3}\times \cdots \times p_k^{\alpha_k}$ 的形式，即 $x&#x3D;\prod_{i&#x3D;1}^k p_i^{\alpha_i}$。由于唯一分解定理，分解出来的形式是唯一的。</p>
+<p>接下来开始分类讨论：</p>
 <ul>
-<li><p>$ A_{i,j}&#x3D;A_{j,i} $</p>
+<li>若 $k&lt;2$，即 $x$ 为质数，无法分解，直接输出 $x$。</li>
+<li>否则：<ul>
+<li>若 $\forall 1 \le i \le k,\alpha_i&#x3D;1$，即所有质因数的指数都为 $1$:<ul>
+<li>若 $2 \mid k$，我们可以两两相消，最后只剩下 $1$。举个例子：若 $x&#x3D;2 \times 3 \times 5 \times 11$。那么我们第一次可以消掉 $2$ 和 $3$，$x&#x3D;5 \times 11$；第二次消掉 $5$ 和 $11$，$x&#x3D;1$。直接输出 $1$ 即可。</li>
+<li>否则，无法消掉所有因子，按照最优策略，应该留下最小的质因子。举个例子：若 $x&#x3D;2 \times 7 \times 13$。第一次可以消掉 $7$ 和 $13$，$x&#x3D;2$；第二次无法继续消了，只留下 $2$。应该输出最小质因子。</li>
+</ul>
 </li>
-<li><p>$ B_{i,j}&#x3D;-B_{j,i} $</p>
-</li>
-<li><p>$ W_{i,j}&#x3D;A_{i,j}+B_{i,j} $</p>
+<li>否则，即其中<strong>至少包含一个</strong>指数超过 $1$：<ul>
+<li>若 $2 \mid k$，依旧留下 $1$。举个例子：若 $x&#x3D;2 \times 3^2 \times 5^3 \times 11^2$。那么我们第一次可以消掉 $2$ 和 $3^2$，$x&#x3D;5^3 \times 11^2$；第二次消掉 $5^3$ 和 $11^2$，$x&#x3D;1$。直接输出 $1$ 即可。</li>
+<li>否则，答案也为 1。举个例子：若 $x&#x3D;3^2 \times 7^2 \times 11^5$。第一次可以先消掉 $3^2$ 和 $7^2$，$x&#x3D;11^5$；第二次我们将 $11^5$ 分为 $11^2 \times 11^3$，分别将他们俩消掉，则 $x&#x3D;1$。输出 $1$ 即可。</li>
+</ul>
 </li>
 </ul>
-<p>可得出：</p>
-<ul>
-<li><p>$ A_{i,j}&#x3D;A_{j,i} $ </p>
-</li>
-<li><p>$ B_{i,j}&#x3D;-B_{j,i} $</p>
-</li>
-<li><p>$ W_{i,j}-W_{j,i}&#x3D;B_{i,j} \times 2 $</p>
 </li>
 </ul>
-<ol start="3">
-<li>操作完毕后，输出 $A,B$ 数组就行了。</li>
-</ol>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">double</span> a[<span class="hljs-number">171</span>][<span class="hljs-number">171</span>],b[<span class="hljs-number">171</span>][<span class="hljs-number">171</span>],w[<span class="hljs-number">171</span>][<span class="hljs-number">171</span>];<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-type">int</span> n;cin&gt;&gt;n;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++) cin&gt;&gt;w[i][j];<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)&#123;<br>			<span class="hljs-type">double</span> t=w[i][j]-w[j][i];<br>			t*=<span class="hljs-number">0.5</span>,b[i][j]=t,a[i][j]=w[i][j]-b[i][j],b[j][i]=-t,a[j][i]=w[j][i]-b[j][i];<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++) <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.8lf &quot;</span>,a[i][j]);<br>		cout&lt;&lt;endl;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++) <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.8lf &quot;</span>,b[i][j]);<br>		cout&lt;&lt;endl;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>综上所述：</p>
+<ul>
+<li>当 $k&lt;2$ 时，答案为 $x$。</li>
+<li>当 $\forall 1 \le i \le k,\alpha_i&#x3D;1$ 且 $2 \nmid k$ 时，答案为 $\min_{i&#x3D;1}^k p_i$。</li>
+<li>否则，答案为 $1$。</li>
+</ul>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br>vector&lt;<span class="hljs-type">int</span>&gt;p;<br><span class="hljs-type">int</span> x,k,mi=INT_MAX;<br><span class="hljs-type">bool</span> f=<span class="hljs-number">1</span>;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">2</span>;i*i&lt;=x;i++)&#123;<br>		<span class="hljs-keyword">if</span>(x%i) <span class="hljs-keyword">continue</span>;<br>		<span class="hljs-type">int</span> c=<span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">while</span>(x%i==<span class="hljs-number">0</span>) c++,x/=i;<br>		p.<span class="hljs-built_in">push_back</span>(i),mi=<span class="hljs-built_in">min</span>(mi,i);<br>		<span class="hljs-keyword">if</span>(c&gt;<span class="hljs-number">1</span>) f=<span class="hljs-number">0</span>;<br>	&#125;<br>	<span class="hljs-keyword">if</span>(x&gt;<span class="hljs-number">1</span>) p.<span class="hljs-built_in">push_back</span>(x);<span class="hljs-comment">//特判，可能没分解完</span><br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	cin&gt;&gt;x,<span class="hljs-built_in">init</span>(x),k=p.<span class="hljs-built_in">size</span>();<br>	<span class="hljs-keyword">if</span>(k&lt;<span class="hljs-number">2</span>) cout&lt;&lt;x;<br>	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(f&amp;&amp;k%<span class="hljs-number">2</span>) cout&lt;&lt;mi;<br>	<span class="hljs-keyword">else</span> cout&lt;&lt;<span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -372,7 +372,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%A8%A1%E6%8B%9F/" class="print-no-link">#模拟</a>
+        <a href="/tags/%E8%B4%AA%E5%BF%83/" class="print-no-link">#贪心</a>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%A6/" class="print-no-link">#数学</a>
+      
+        <a href="/tags/%E6%95%B0%E8%AE%BA/" class="print-no-link">#数论</a>
       
     </div>
   
@@ -384,8 +388,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>题解：CF393B Three matrices</div>
-      <div>https://cjy20121019.github.io/2026/02/16/题解：CF393B Three matrices/</div>
+      <div>题解：P10411 「QFOI R2」树色尤含残雨</div>
+      <div>https://cjy20121019.github.io/2026/03/03/题解：P10411 「QFOI R2」树色尤含残雨/</div>
     </div>
     <div class="license-meta">
       
@@ -397,7 +401,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年2月16日</div>
+          <div>2026年3月3日</div>
         </div>
       
       
@@ -422,18 +426,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/03/03/%E9%A2%98%E8%A7%A3%EF%BC%9AP10411%20%E3%80%8CQFOI%20R2%E3%80%8D%E6%A0%91%E8%89%B2%E5%B0%A4%E5%90%AB%E6%AE%8B%E9%9B%A8/" title="题解：P10411 「QFOI R2」树色尤含残雨">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">题解：P10411 「QFOI R2」树色尤含残雨</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9ASP64%20PERMUT1%20-%20Permutations/" title="题解：SP64 PERMUT1 - Permutations">
-                        <span class="hidden-mobile">题解：SP64 PERMUT1 - Permutations</span>
+                      <a href="/2026/02/16/%E9%A2%98%E8%A7%A3%EF%BC%9ACF393B%20Three%20matrices/" title="题解：CF393B Three matrices">
+                        <span class="hidden-mobile">题解：CF393B Three matrices</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
