@@ -153,9 +153,9 @@
     
     <tags>
       
-      <tag>贪心</tag>
-      
       <tag>字符串</tag>
+      
+      <tag>贪心</tag>
       
     </tags>
     
@@ -261,9 +261,9 @@
       
       <tag>数学</tag>
       
-      <tag>数论</tag>
-      
       <tag>递推</tag>
+      
+      <tag>数论</tag>
       
       <tag>前缀和</tag>
       
@@ -292,9 +292,9 @@
       
       <tag>动态规划 DP</tag>
       
-      <tag>递推</tag>
-      
       <tag>搜索</tag>
+      
+      <tag>递推</tag>
       
       <tag>剪枝</tag>
       
@@ -321,11 +321,11 @@
     
     <tags>
       
+      <tag>字符串</tag>
+      
       <tag>模拟</tag>
       
       <tag>数学</tag>
-      
-      <tag>字符串</tag>
       
     </tags>
     
@@ -394,9 +394,9 @@
     
     <tags>
       
-      <tag>模拟</tag>
-      
       <tag>字符串</tag>
+      
+      <tag>模拟</tag>
       
     </tags>
     
