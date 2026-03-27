@@ -4,9 +4,9 @@
   
   
   <entry>
-    <title>【学习笔记】P1080 [NOIP 2012 提高组] 国王游戏</title>
-    <link href="/2026/03/25/%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/"/>
-    <url>/2026/03/25/%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/</url>
+    <title>P1080 [NOIP 2012 提高组] 国王游戏 学习笔记</title>
+    <link href="/2026/03/25/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91P1080%20%5BNOIP%202012%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/"/>
+    <url>/2026/03/25/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91P1080%20%5BNOIP%202012%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/</url>
     
     <content type="html"><![CDATA[<p>令 $s_i$ 为 $\prod_{j&#x3D;0}^{i}a_j$，下文中 $s$ 即为 $s_i$。</p><p>由课件得 $\max(\frac{s}{b_{i+1}},\frac{s \times a_{i+1}}{b_i})&lt;\max(\frac{s}{b_i},\frac{s \times a_{i}}{b_i+1})$，则有：<br>$$<br>\begin{aligned}<br>\max(\frac{s}{b_{i+1}},\frac{s \times a_{i+1}}{b_i})&amp;&lt;\max(\frac{s}{b_i},\frac{s \times a_{i}}{b_{i+1}})\<br>\max(\frac{1}{b_{i+1}},\frac{a_{i+1}}{b_i})&amp;&lt;\max(\frac{1}{b_i},\frac{a_{i}}{b_{i+1}})&amp;(同除以\ s)\<br>\max(b_i,a_{i+1} \times b_{i+1})&amp;&lt;\max(b_{i+1},a_i \times b_i)&amp;(同乘\ b_i,b_{i+1})\<br>\end{aligned}<br>$$<br>考虑三种情况：</p><ol><li>若 $b_i&lt;a_{i+1} \times b_{i+1} \land b_{i+1}&lt;a_i \times b_i$，则结果为 $a_{i+1} \times b_{i+1}&gt;a_i \times b_i$。</li><li>若 $b_i&gt;a_{i+1} \times b_{i+1}$，则有 $a_i \times b_i&gt;a_{i+1} \times b_{i+1} \times a_i$，所以 $\max(b_{i+1},a_i \times b_i)&#x3D;a_i \times b_i$，则结果为 $b_i&lt;a_i \times b_i$，成立。</li><li>若 $b_{i+1}&gt;a_i \times b_i$，同理则有 $\max(b_i,a_{i+1} \times b_{i+1})&#x3D;a_{i+1} \times b_{i+1}$，结果为 $a_{i+1} \times b_{i+1}&lt;b_{i+1}$，不成立。</li></ol><p>综上，若要成立，则必须满足 $a_{i+1} \times b_{i+1}&gt;a_i \times b_i$ 的条件，降序排序即可。</p>]]></content>
     
@@ -33,9 +33,9 @@
   
   
   <entry>
-    <title>P1080 [NOIP 2012 提高组] 国王游戏 学习笔记</title>
-    <link href="/2026/03/25/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91P1080%20%5BNOIP%202012%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/"/>
-    <url>/2026/03/25/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91P1080%20%5BNOIP%202012%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/</url>
+    <title>【学习笔记】P1080 [NOIP 2012 提高组] 国王游戏</title>
+    <link href="/2026/03/25/%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/"/>
+    <url>/2026/03/25/%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/</url>
     
     <content type="html"><![CDATA[<p>令 $s_i$ 为 $\prod_{j&#x3D;0}^{i}a_j$，下文中 $s$ 即为 $s_i$。</p><p>由课件得 $\max(\frac{s}{b_{i+1}},\frac{s \times a_{i+1}}{b_i})&lt;\max(\frac{s}{b_i},\frac{s \times a_{i}}{b_i+1})$，则有：<br>$$<br>\begin{aligned}<br>\max(\frac{s}{b_{i+1}},\frac{s \times a_{i+1}}{b_i})&amp;&lt;\max(\frac{s}{b_i},\frac{s \times a_{i}}{b_{i+1}})\<br>\max(\frac{1}{b_{i+1}},\frac{a_{i+1}}{b_i})&amp;&lt;\max(\frac{1}{b_i},\frac{a_{i}}{b_{i+1}})&amp;(同除以\ s)\<br>\max(b_i,a_{i+1} \times b_{i+1})&amp;&lt;\max(b_{i+1},a_i \times b_i)&amp;(同乘\ b_i,b_{i+1})\<br>\end{aligned}<br>$$<br>考虑三种情况：</p><ol><li>若 $b_i&lt;a_{i+1} \times b_{i+1} \land b_{i+1}&lt;a_i \times b_i$，则结果为 $a_{i+1} \times b_{i+1}&gt;a_i \times b_i$。</li><li>若 $b_i&gt;a_{i+1} \times b_{i+1}$，则有 $a_i \times b_i&gt;a_{i+1} \times b_{i+1} \times a_i$，所以 $\max(b_{i+1},a_i \times b_i)&#x3D;a_i \times b_i$，则结果为 $b_i&lt;a_i \times b_i$，成立。</li><li>若 $b_{i+1}&gt;a_i \times b_i$，同理则有 $\max(b_i,a_{i+1} \times b_{i+1})&#x3D;a_{i+1} \times b_{i+1}$，结果为 $a_{i+1} \times b_{i+1}&lt;b_{i+1}$，不成立。</li></ol><p>综上，若要成立，则必须满足 $a_{i+1} \times b_{i+1}&gt;a_i \times b_i$ 的条件，降序排序即可。</p>]]></content>
     
@@ -211,9 +211,9 @@
     
     <tags>
       
-      <tag>字符串</tag>
-      
       <tag>贪心</tag>
+      
+      <tag>字符串</tag>
       
     </tags>
     
@@ -319,9 +319,9 @@
       
       <tag>数学</tag>
       
-      <tag>数论</tag>
-      
       <tag>递推</tag>
+      
+      <tag>数论</tag>
       
       <tag>前缀和</tag>
       
@@ -350,9 +350,9 @@
       
       <tag>动态规划 DP</tag>
       
-      <tag>递推</tag>
-      
       <tag>搜索</tag>
+      
+      <tag>递推</tag>
       
       <tag>剪枝</tag>
       
