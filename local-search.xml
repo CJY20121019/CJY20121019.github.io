@@ -4,7 +4,7 @@
   
   
   <entry>
-    <title>P1080 [NOIP 2012 提高组] 国王游戏 学习笔记</title>
+    <title>【学习笔记】P1080 [NOIP 2012 提高组] 国王游戏</title>
     <link href="/2026/03/25/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91P1080%20%5BNOIP%202012%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/"/>
     <url>/2026/03/25/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91P1080%20%5BNOIP%202012%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/</url>
     
@@ -321,9 +321,9 @@
       
       <tag>动态规划 DP</tag>
       
-      <tag>递推</tag>
-      
       <tag>搜索</tag>
+      
+      <tag>递推</tag>
       
       <tag>剪枝</tag>
       
@@ -350,9 +350,9 @@
     
     <tags>
       
-      <tag>字符串</tag>
-      
       <tag>模拟</tag>
+      
+      <tag>字符串</tag>
       
       <tag>数学</tag>
       
@@ -423,9 +423,9 @@
     
     <tags>
       
-      <tag>字符串</tag>
-      
       <tag>模拟</tag>
+      
+      <tag>字符串</tag>
       
     </tags>
     
@@ -512,9 +512,9 @@
     
     <tags>
       
-      <tag>枚举</tag>
-      
       <tag>数学</tag>
+      
+      <tag>枚举</tag>
       
     </tags>
     
