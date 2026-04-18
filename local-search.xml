@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>【学习笔记】P1080 [NOIP 2012 提高组] 国王游戏</title>
+    <link href="/2026/03/25/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91P1080%20%5BNOIP%202012%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/"/>
+    <url>/2026/03/25/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91P1080%20%5BNOIP%202012%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/</url>
+    
+    <content type="html"><![CDATA[<p>令 $s_i$ 为 $\prod_{j&#x3D;0}^{i}a_j$，下文中 $s$ 即为 $s_i$。</p><p>由题意得 $\max(\frac{s}{b_{i+1}},\frac{s \times a_{i+1}}{b_i})&lt;\max(\frac{s}{b_i},\frac{s \times a_{i}}{b_i+1})$，则有：<br>$$<br>\begin{aligned}<br>\max(\frac{s}{b_{i+1}},\frac{s \times a_{i+1}}{b_i})&amp;&lt;\max(\frac{s}{b_i},\frac{s \times a_{i}}{b_{i+1}})\<br>\max(\frac{1}{b_{i+1}},\frac{a_{i+1}}{b_i})&amp;&lt;\max(\frac{1}{b_i},\frac{a_{i}}{b_{i+1}})&amp;(同除以\ s)\<br>\max(b_i,a_{i+1} \times b_{i+1})&amp;&lt;\max(b_{i+1},a_i \times b_i)&amp;(同乘\ b_i,b_{i+1})\<br>\end{aligned}<br>$$<br>考虑三种情况：</p><ol><li>若 $b_i&lt;a_{i+1} \times b_{i+1} \land b_{i+1}&lt;a_i \times b_i$，则结果为 $a_{i+1} \times b_{i+1}&gt;a_i \times b_i$。</li><li>若 $b_i&gt;a_{i+1} \times b_{i+1}$，则有 $a_i \times b_i&gt;a_{i+1} \times b_{i+1} \times a_i$，所以 $\max(b_{i+1},a_i \times b_i)&#x3D;a_i \times b_i$，则结果为 $b_i&lt;a_i \times b_i$，<strong>恒</strong>成立。</li><li>若 $b_{i+1}&gt;a_i \times b_i$，同理则有 $\max(b_i,a_{i+1} \times b_{i+1})&#x3D;a_{i+1} \times b_{i+1}$，结果为 $a_{i+1} \times b_{i+1}&lt;b_{i+1}$，<strong>恒不</strong>成立。</li></ol><p>综上，若要成立，则必须满足 $a_{i+1} \times b_{i+1}&gt;a_i \times b_i$ 的条件，按 $a_i \times b_i$ 升序排序即可。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>学习笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>贪心</tag>
+      
+      <tag>高精度</tag>
+      
+      <tag>排序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>【缺省源】高精度板子</title>
     <link href="/2026/03/25/%E3%80%90%E7%BC%BA%E7%9C%81%E6%BA%90%E3%80%91%E9%AB%98%E7%B2%BE%E5%BA%A6%E6%9D%BF%E5%AD%90/"/>
     <url>/2026/03/25/%E3%80%90%E7%BC%BA%E7%9C%81%E6%BA%90%E3%80%91%E9%AB%98%E7%B2%BE%E5%BA%A6%E6%9D%BF%E5%AD%90/</url>
@@ -21,35 +50,6 @@
     <tags>
       
       <tag>高精度</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>【学习笔记】P1080 [NOIP 2012 提高组] 国王游戏</title>
-    <link href="/2026/03/25/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91P1080%20%5BNOIP%202012%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/"/>
-    <url>/2026/03/25/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91P1080%20%5BNOIP%202012%20%E6%8F%90%E9%AB%98%E7%BB%84%5D%20%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F/</url>
-    
-    <content type="html"><![CDATA[<p>令 $s_i$ 为 $\prod_{j&#x3D;0}^{i}a_j$，下文中 $s$ 即为 $s_i$。</p><p>由题意得 $\max(\frac{s}{b_{i+1}},\frac{s \times a_{i+1}}{b_i})&lt;\max(\frac{s}{b_i},\frac{s \times a_{i}}{b_i+1})$，则有：<br>$$<br>\begin{aligned}<br>\max(\frac{s}{b_{i+1}},\frac{s \times a_{i+1}}{b_i})&amp;&lt;\max(\frac{s}{b_i},\frac{s \times a_{i}}{b_{i+1}})\<br>\max(\frac{1}{b_{i+1}},\frac{a_{i+1}}{b_i})&amp;&lt;\max(\frac{1}{b_i},\frac{a_{i}}{b_{i+1}})&amp;(同除以\ s)\<br>\max(b_i,a_{i+1} \times b_{i+1})&amp;&lt;\max(b_{i+1},a_i \times b_i)&amp;(同乘\ b_i,b_{i+1})\<br>\end{aligned}<br>$$<br>考虑三种情况：</p><ol><li>若 $b_i&lt;a_{i+1} \times b_{i+1} \land b_{i+1}&lt;a_i \times b_i$，则结果为 $a_{i+1} \times b_{i+1}&gt;a_i \times b_i$。</li><li>若 $b_i&gt;a_{i+1} \times b_{i+1}$，则有 $a_i \times b_i&gt;a_{i+1} \times b_{i+1} \times a_i$，所以 $\max(b_{i+1},a_i \times b_i)&#x3D;a_i \times b_i$，则结果为 $b_i&lt;a_i \times b_i$，<strong>恒</strong>成立。</li><li>若 $b_{i+1}&gt;a_i \times b_i$，同理则有 $\max(b_i,a_{i+1} \times b_{i+1})&#x3D;a_{i+1} \times b_{i+1}$，结果为 $a_{i+1} \times b_{i+1}&lt;b_{i+1}$，<strong>恒不</strong>成立。</li></ol><p>综上，若要成立，则必须满足 $a_{i+1} \times b_{i+1}&gt;a_i \times b_i$ 的条件，按 $a_i \times b_i$ 升序排序即可。</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>学习笔记</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>高精度</tag>
-      
-      <tag>贪心</tag>
-      
-      <tag>排序</tag>
       
     </tags>
     
@@ -346,9 +346,9 @@
       
       <tag>动态规划 DP</tag>
       
-      <tag>递推</tag>
-      
       <tag>搜索</tag>
+      
+      <tag>递推</tag>
       
       <tag>剪枝</tag>
       
@@ -375,9 +375,9 @@
     
     <tags>
       
-      <tag>字符串</tag>
-      
       <tag>模拟</tag>
+      
+      <tag>字符串</tag>
       
       <tag>数学</tag>
       
@@ -448,9 +448,9 @@
     
     <tags>
       
-      <tag>字符串</tag>
-      
       <tag>模拟</tag>
+      
+      <tag>字符串</tag>
       
     </tags>
     
@@ -475,9 +475,9 @@
     
     <tags>
       
-      <tag>动态规划 DP</tag>
-      
       <tag>数学</tag>
+      
+      <tag>动态规划 DP</tag>
       
       <tag>递推</tag>
       
@@ -658,7 +658,7 @@
     <link href="/2026/02/16/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E5%85%B3%E4%BA%8E%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2/"/>
     <url>/2026/02/16/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E5%85%B3%E4%BA%8E%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2/</url>
     
-    <content type="html"><![CDATA[<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/7wtesdoj.png"></p><p><img src="https://ipcounter.ihcr.top/?mode=2&mail=3928897165@qq.com&str=%E6%B1%82%E5%85%B3%E6%B3%A8%E4%B8%80%E6%9E%9A%E8%B0%A2%E8%B0%A2%E5%95%A6~QwQ&lg=__CJY__&&qq=%E6%A3%AE%E6%9E%97%E6%99%A8%E6%9B%A6&gh=CJY20121019"></p><p>这里是 <a href="https://www.luogu.com.cn/user/1086453">__CJY__</a> 的个人博客，在这里你可以看到：</p><ul><li>精美的学习笔记</li><li>逻辑清晰的题解${}^{\tt 1}$</li><li>惊心动魄的游记</li></ul><p>${}^{\tt 1}$：特别的，这里只记录在<a href="https://www.luogu.com.cn/">洛谷</a>上深受好评的<strong>优质</strong>题解，如果你想看到我的所有文章，请<a href="https://www.luogu.com.cn/user/1086453/article">截这里</a>！</p><p><strong>另外，这是<a href="https://www.luogu.com.cn/chat?uid=1086453">我的私信</a>，欢迎交流、勘误，也希望你们在我的洛谷专栏上能多多点赞！</strong></p><p><em><strong>祝你看得开心！</strong></em></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/7wtesdoj.png"></p><p><img src="https://ipcounter.ihcr.top/?mode=2&mail=3928897165@qq.com&str=%E6%B1%82%E5%85%B3%E6%B3%A8%E4%B8%80%E6%9E%9A%E8%B0%A2%E8%B0%A2%E5%95%A6~QwQ&lg=CJY_Holmes&&qq=%E6%A3%AE%E6%9E%97%E6%99%A8%E6%9B%A6&gh=CJY20121019"></p><p>这里是 <a href="https://www.luogu.com.cn/user/1086453">CJY_Holmes</a> 的个人博客，在这里你可以看到：</p><ul><li>精美的学习笔记</li><li>逻辑清晰的题解${}^{\tt 1}$</li><li>惊心动魄的游记</li></ul><p>${}^{\tt 1}$：特别的，这里只记录在<a href="https://www.luogu.com.cn/">洛谷</a>上深受好评的<strong>优质</strong>题解，如果你想看到我的所有文章，请<a href="https://www.luogu.com.cn/user/1086453/article">截这里</a>！</p><p><strong>另外，这是<a href="https://www.luogu.com.cn/chat?uid=1086453">我的私信</a>，欢迎交流、勘误，也希望你们在我的洛谷专栏上能多多点赞！</strong></p><p><em><strong>祝你看得开心！</strong></em></p>]]></content>
     
     
     <categories>
